@@ -49,11 +49,11 @@
             Metro Mobilia Corporation
         </div>
 
-        <h1 class="font-serif text-5xl font-light leading-[1.05] tracking-wide text-white sm:text-6xl md:text-7xl lg:text-[90px]">
-            Quality Supply.
+        <h1 class="font-serif text-2xl font-light leading-[1.05] tracking-wide text-white sm:text-6xl md:text-7xl lg:text-[40px]">
+            Built on Compliance. Delivered with Precision.
             <br>
-            <em class="text-[#c8b89a]">Trusted</em>
-            Nationwide.
+            <em class="text-[#c8b89a]">Quality</em>
+            You Can Procure With Confidence.
         </h1>
 
         <p class="mx-auto mt-6 max-w-xl text-sm font-light leading-[1.9] text-white/55 sm:text-[15px]">

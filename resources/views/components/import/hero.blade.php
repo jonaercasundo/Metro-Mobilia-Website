@@ -57,13 +57,6 @@
             Nationwide.
         </h1>
 
-        <p class="mx-auto mt-6 max-w-xl text-sm font-light leading-[1.9] text-white/55 sm:text-[15px]">
-            Metro Mobilia Corporation is a licensed Philippine trading company —
-            exporting fine furniture globally while supplying government agencies
-            with world-class school furniture, IT equipment, and educational materials.
-            Quality sourced. Standards tested. Nationwide delivered.
-        </p>
-
         <div class="mt-10 flex flex-wrap justify-center gap-4">
 
             <a

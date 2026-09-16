@@ -60,9 +60,9 @@
                 </div>
 
                 <h1 class="font-serif text-4xl font-light leading-[1.1] md:text-5xl lg:text-6xl">
-                    Products &
+                    Furniture &
                     <br>
-                    <em class="text-[#c8b89a]">Solutions.</em>
+                    <em class="text-[#c8b89a]">Collections.</em>
                 </h1>
 
                 <p class="mt-7 max-w-2xl text-sm font-light leading-[1.9] text-white/40">

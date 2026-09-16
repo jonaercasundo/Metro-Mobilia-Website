@@ -49,20 +49,14 @@
             Metro Mobilia Corporation
         </div>
 
-        <h1 class="font-serif text-5xl font-light leading-[1.05] tracking-wide text-white sm:text-6xl md:text-7xl lg:text-[90px]">
-            Quality Supply.
+        <h1 class="font-serif text-5xl font-light leading-[1.05] tracking-wide text-white sm:text-6xl md:text-7xl lg:text-[70px]">
+            <em class="text-[#c8b89a]">Precision</em> in Every Piece.
             <br>
-            <em class="text-[#c8b89a]">Trusted</em>
-            Nationwide.
+            <em class="text-[#c8b89a]">Passion</em> in Every Detail.
         </h1>
-
         <p class="mx-auto mt-6 max-w-xl text-sm font-light leading-[1.9] text-white/55 sm:text-[15px]">
-            Metro Mobilia Corporation is a licensed Philippine trading company —
-            exporting fine furniture globally while supplying government agencies
-            with world-class school furniture, IT equipment, and educational materials.
-            Quality sourced. Standards tested. Nationwide delivered.
+            Driven by Precision in Every Piece, Passion in Every Detail, Metro Mobilia Export crafts living, dining, and bedroom collections for global markets. Experience our materials and finalize specifications at our Shenzhen and Ho Chi Minh City showrooms.
         </p>
-
         <div class="mt-10 flex flex-wrap justify-center gap-4">
 
             <a

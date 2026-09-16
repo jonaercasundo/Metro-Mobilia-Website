@@ -30,58 +30,41 @@
             Logo + Context
         ============================================================= --}}
 
-        <div class="flex items-center gap-4">
+<div class="flex items-center gap-4">
 
-            <a
-                href="{{ route('home') }}"
-                class="flex items-center gap-3 no-underline"
+    <a
+        href="{{ route('home') }}"
+        class="flex items-center gap-3 no-underline"
+    >
+        {{-- Logo --}}
+        <img
+            src="{{ asset('images/logo.png') }}"
+            alt="Metro Mobilia Corporation"
+            class="h-[230px] w-auto max-w-none object-contain"
+        >
+    </a>
+
+    {{-- Import / Export Badge --}}
+    @if ($onDivisionPage)
+        <div
+            class="hidden items-center gap-1.5 rounded-full
+                   border border-[#c8b89a]/30
+                   bg-[#c8b89a]/10 px-3 py-1 sm:flex"
+        >
+            <span
+                class="h-1.5 w-1.5 rounded-full bg-[#c8b89a]"
+            ></span>
+
+            <span
+                class="text-[9px] font-medium uppercase
+                       tracking-[0.2em] text-[#c8b89a]"
             >
-                <div
-                    class="flex h-[38px] w-[38px] items-center justify-center
-                           rounded-full bg-[#f5f3ee]
-                           font-serif text-lg font-semibold text-[#0d0d0d]"
-                >
-                    M
-                </div>
-
-                <div class="text-white">
-                    <div
-                        class="text-[11px] font-medium uppercase
-                               tracking-[0.22em]"
-                    >
-                        Metro · Mobilia
-                    </div>
-
-                    <div
-                        class="mt-0.5 text-[9px] uppercase
-                               tracking-[0.28em] text-white/40"
-                    >
-                        Corporation
-                    </div>
-                </div>
-            </a>
-
-            {{-- Import / Export Badge --}}
-            @if ($onDivisionPage)
-                <div
-                    class="hidden items-center gap-1.5 rounded-full
-                           border border-[#c8b89a]/30
-                           bg-[#c8b89a]/10 px-3 py-1 sm:flex"
-                >
-                    <span
-                        class="h-1.5 w-1.5 rounded-full bg-[#c8b89a]"
-                    ></span>
-
-                    <span
-                        class="text-[9px] font-medium uppercase
-                               tracking-[0.2em] text-[#c8b89a]"
-                    >
-                        {{ ucfirst($navContext) }}
-                    </span>
-                </div>
-            @endif
-
+                {{ ucfirst($navContext) }}
+            </span>
         </div>
+    @endif
+
+</div>
 
 
         {{-- ============================================================

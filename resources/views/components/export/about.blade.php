@@ -25,11 +25,11 @@
                             leading-[1.1] text-[#0d0d0d]
                             md:text-5xl lg:text-6xl"
                     >
-                        Built on Compliance.
+                        Trusted Makers.
                         <br>
 
                         <em class="text-[#a08060]">
-                            Driven by Quality.
+                            Global Reach.
                         </em>
                     </h1>
 
@@ -75,7 +75,7 @@
                     >
 
                         <img
-                            src="{{ asset('images/office-reception.jpg') }}"
+                            src="{{ asset('images/MI_1.jpg') }}"
                             alt="Metro Mobilia Corporation office reception"
                             class="h-full w-full object-cover
                                 opacity-85 transition duration-700
@@ -101,7 +101,7 @@
                         >
 
                             <img
-                                src="{{ asset('images/office-1.jpg') }}"
+                                src="{{ asset('images/MI_2.jpg') }}"
                                 alt="Metro Mobilia Corporation office"
                                 class="h-full w-full object-cover
                                     opacity-80 transition duration-700
@@ -117,7 +117,7 @@
                         >
 
                             <img
-                                src="{{ asset('images/office-2.jpg') }}"
+                                src="{{ asset('images/MI_3.jpg') }}"
                                 alt="Metro Mobilia Corporation operations"
                                 class="h-full w-full object-cover
                                     opacity-80 transition duration-700
@@ -139,14 +139,14 @@
                             class="text-[9px] uppercase
                                 tracking-[0.18em] text-black/40"
                         >
-                            Metro Mobilia Corporation
+                            Ho chi min Vietnam
                         </span>
 
                         <span
                             class="text-[9px] uppercase
                                 tracking-[0.18em] text-black/30"
                         >
-                            Alabang, Philippines
+                            Shenzhen China
                         </span>
 
                     </div>
