@@ -85,7 +85,7 @@
                                     id="product-main-image-{{ $product['code'] }}"
                                     src="{{ $galleryImages->first()['src'] }}"
                                     alt="{{ $product['name'] }}"
-                                    class="h-full w-full object-cover object-center opacity-100 transition-opacity duration-200 ease-out"
+                                    class="h-full w-full object-contain object-center opacity-100 transition-opacity duration-200 ease-out"
                                     loading="eager"
                                     onerror="
                                         this.style.display='none';

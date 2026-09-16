@@ -127,13 +127,48 @@ class ProductController extends Controller
                 'long_description' => 'Early-learning manipulatives and developmental toys designed to support motor skills, cognitive development, and classroom engagement for pre-school and early elementary programs.',
                 'icon' => '○',
                 'category' => 'Early Learning',
-                'image' => 'products/manipulative-toys.jpg',
+                'image' => 'brands/manipulative_toys_1.png',
 
                 'brands' => [
                     [
-                        'name' => 'PlayLearn',
-                        'logo' => 'brands/playlearn.png',
-                        'image' => 'products/manipulative-toys-playlearn.jpg',
+                        'name' => 'Table Blocks (Wood)',
+                        'logo' => 'brands/manipulative_toys_1.png',
+                        'image' => 'brands/manipulative_toys_1.png',
+                    ],
+                    [
+                        'name' => 'Pattern Blocks (Wood)',
+                        'logo' => 'brands/manipulative_toys_2.png',
+                        'image' => 'brands/manipulative_toys_2.png',
+                    ],
+                    [
+                        'name' => 'Filipino Alphabet Puzzle Lowercase Letters (Wood)',
+                        'logo' => 'brands/manipulative_toys_3.png',
+                        'image' => 'brands/manipulative_toys_3.png',
+                    ],
+                    [
+                        'name' => 'Filipino Alphabet Puzzle Uppercase Letters (Wood)',
+                        'logo' => 'brands/manipulative_toys_4.png',
+                        'image' => 'brands/manipulative_toys_4.png',
+                    ],
+                    [
+                        'name' => 'Shape Sorter (Wood)',
+                        'logo' => 'brands/manipulative_toys_5.png',
+                        'image' => 'brands/manipulative_toys_5.png',
+                    ],
+                    [
+                        'name' => 'PlayLearn5',
+                        'logo' => 'brands/manipulative_toys_6.png',
+                        'image' => 'brands/manipulative_toys_6.png',
+                    ],
+                    [
+                        'name' => 'Shape Lacing Cards (Wood)',
+                        'logo' => 'brands/manipulative_toys_7.png',
+                        'image' => 'brands/manipulative_toys_7.png',
+                    ],
+                    [
+                        'name' => 'PlayLearn7',
+                        'logo' => 'brands/manipulative_toys_8.png',
+                        'image' => 'brands/manipulative_toys_8.png',
                     ],
                 ],
             ],

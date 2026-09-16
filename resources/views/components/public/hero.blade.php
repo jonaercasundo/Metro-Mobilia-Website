@@ -17,7 +17,7 @@
         class="absolute inset-0 z-0 h-full w-full object-cover opacity-[0.38]"
     >
         <source
-            src="{{ asset('videos/export.mp4') }}"
+            src="{{ asset('videos/homepage.mp4') }}"
             type="video/mp4"
         >
     </video>

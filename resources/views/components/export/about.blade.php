@@ -40,12 +40,7 @@
                             text-sm font-light
                             leading-[1.9] text-[#555]"
                     >
-                        Metro Mobilia Corporation is a SEC, BIR, and PhilGEPS
-                        Platinum-registered trading company specializing in
-                        government procurement. We partner directly with
-                        international manufacturers and factories to guarantee
-                        quality at the source — backed by rigorous third-party
-                        testing before every delivery.
+                        Metro Mobilia Export is a home furniture manufacturer with showrooms in China and Vietnam. We design and produce living, dining, and bedroom furniture — built with lasting materials and finished to satisfy the most discerning buyers worldwide.
                     </p>
 
 
@@ -55,76 +50,14 @@
                             text-sm font-light
                             leading-[1.9] text-[#555]"
                     >
-                        Our headquarters is located at the 15th Floor, Asian Star
-                        Building, Filinvest City, Alabang — where our team manages
-                        procurement, quality assurance, and client coordination
-                        for projects nationwide.
+                        Our showrooms in Shenzhen and Ho Chi Minh City let buyers experience our collections in person — touching the materials, reviewing the finishes, and specifying every detail before a single piece enters production.
                     </p>
 
 
                     {{-- =================================================
                         CREDENTIALS
                     ================================================== --}}
-                    <div class="mt-10">
 
-                        <div
-                            class="mb-4 text-[10px] uppercase
-                                tracking-[0.2em] text-black/40"
-                        >
-                            Our Credentials
-                        </div>
-
-
-                        <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
-
-                            @foreach([
-                                ['PhilGEPS Platinum', 'Registered Member'],
-                                ['FDA-LTO', 'Medical & Cosmetics'],
-                                ['NTC GEC License', 'Laptops & Tablets'],
-                                ['Bureau of Customs', 'Import Authority'],
-                                ["Dealer's Permit", 'Licensed Dealer'],
-                                ['Trademark Registered', 'IP Protected Brand'],
-                            ] as [$name, $detail])
-
-                                <div
-                                    class="relative overflow-hidden
-                                        border border-black/10
-                                        bg-white px-5 py-4
-                                        transition
-                                        hover:border-[#c8b89a]"
-                                >
-
-                                    {{-- Accent Line --}}
-                                    <div
-                                        class="absolute bottom-0 left-0 top-0
-                                            w-[3px] bg-[#c8b89a]"
-                                    ></div>
-
-
-                                    {{-- Credential Name --}}
-                                    <div
-                                        class="text-xs font-medium
-                                            tracking-wide text-[#0d0d0d]"
-                                    >
-                                        {{ $name }}
-                                    </div>
-
-
-                                    {{-- Credential Detail --}}
-                                    <div
-                                        class="mt-1 text-[11px]
-                                            text-black/45"
-                                    >
-                                        {{ $detail }}
-                                    </div>
-
-                                </div>
-
-                            @endforeach
-
-                        </div>
-
-                    </div>
 
                 </div>
 

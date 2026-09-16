@@ -66,9 +66,7 @@
                 </h1>
 
                 <p class="mt-7 max-w-2xl text-sm font-light leading-[1.9] text-white/40">
-                    We source and supply a range of educational, technology,
-                    furniture, and institutional products to support government
-                    programs, schools, and organizations nationwide.
+                    We design and manufacture a full range of home furniture — from living and dining to bedroom and outdoor — supplied factory-direct from our showrooms in Shenzhen and Ho Chi Minh City.
                 </p>
 
             </div>
@@ -150,35 +148,6 @@
         </div>
 
         {{-- SOURCING STATEMENT --}}
-        <div class="mt-12 grid gap-px border border-white/10 bg-white/10 md:grid-cols-[1fr_auto]">
-
-            <div class="bg-[#222] p-7 md:p-8">
-
-                <div class="mb-4 flex items-center gap-3 text-[9px] uppercase tracking-[0.2em] text-white/30">
-                    <span class="h-px w-6 bg-[#c8b89a]/60"></span>
-                    Sourcing & Procurement
-                </div>
-
-                <p class="max-w-3xl text-sm font-light leading-[1.8] text-white/45">
-                    Product availability and specifications may vary depending
-                    on project requirements. Our team works with manufacturers,
-                    suppliers, and sourcing partners to identify products that
-                    meet the required specifications.
-                </p>
-
-            </div>
-
-            <div class="flex items-center bg-[#222] p-7 md:p-8">
-                <a
-                    href="{{ route('contact') }}"
-                    class="group inline-flex items-center gap-4 border border-[#c8b89a]/30 px-5 py-3 text-[10px] uppercase tracking-[0.18em] text-[#c8b89a] transition duration-300 hover:border-[#c8b89a] hover:bg-[#c8b89a] hover:text-[#0d0d0d]"
-                >
-                    <span>Discuss Your Requirements</span>
-                    <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </a>
-            </div>
-
-        </div>
 
         {{-- FOOTNOTE --}}
         <div class="mt-6 flex flex-col gap-2 text-[9px] uppercase tracking-[0.16em] text-white/20 sm:flex-row sm:items-center sm:justify-between">
