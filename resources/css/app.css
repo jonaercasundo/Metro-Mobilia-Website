@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+[x-cloak] {
+    display: none !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Outfit", sans-serif;
+}
+
+.font-serif {
+    font-family: "Cormorant Garamond", serif;
+}
+
+::selection {
+    background: #c8b89a;
+    color: #0d0d0d;
+}
