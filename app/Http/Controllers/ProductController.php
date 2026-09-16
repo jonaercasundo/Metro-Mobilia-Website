@@ -18,12 +18,26 @@ class ProductController extends Controller
                 'icon' => '▣',
                 'category' => 'Furniture',
                 'image' => 'products/school-furniture.jpg',
+
                 'brands' => [
-                    ['name' => 'Steelcraft', 'logo' => 'brands/steelcraft.png'],
-                    ['name' => 'EduDesk', 'logo' => 'brands/edudesk.png'],
-                    ['name' => 'Formline', 'logo' => 'brands/formline.jpg'],
+                    [
+                        'name' => 'Steelcraft',
+                        'logo' => 'brands/steelcraft.png',
+                        'image' => 'brands/steelcraft.png',
+                    ],
+                    [
+                        'name' => 'EduDesk',
+                        'logo' => 'brands/edudesk.png',
+                        'image' => 'brands/edudesk.png',
+                    ],
+                    [
+                        'name' => 'Formline',
+                        'logo' => 'brands/formline.jpg',
+                        'image' => 'brands/formline.png',
+                    ],
                 ],
             ],
+
             [
                 'code' => 'MM-IT-02',
                 'number' => '02',
@@ -33,11 +47,28 @@ class ProductController extends Controller
                 'icon' => '⌘',
                 'category' => 'Technology',
                 'image' => 'products/it-equipment.jpg',
+
                 'brands' => [
-                    ['name' => 'Lenovo', 'logo' => 'brands/lenovo.jpg'],
-                    ['name' => 'HP', 'logo' => 'brands/hp.jpg'],
-                    ['name' => 'Acer', 'logo' => 'brands/acer.jpg'],
-                    ['name' => 'Epson', 'logo' => 'brands/epson.jpg'],
+                    [
+                        'name' => 'Lenovo',
+                        'logo' => 'brands/lenovo.jpg',
+                        'image' => 'brands/lenovo.jpg',
+                    ],
+                    [
+                        'name' => 'HP',
+                        'logo' => 'brands/hp.jpg',
+                        'image' => 'brands/hp.jpg',
+                    ],
+                    [
+                        'name' => 'Acer',
+                        'logo' => 'brands/acer.jpg',
+                        'image' => 'brands/acer.jpg',
+                    ],
+                    [
+                        'name' => 'Epson',
+                        'logo' => 'brands/epson.jpg',
+                        'image' => 'brands/epson.jpg',
+                    ],
                 ],
             ],
             [
@@ -49,11 +80,21 @@ class ProductController extends Controller
                 'icon' => '◇',
                 'category' => 'Learning Materials',
                 'image' => 'products/science-kits.jpg',
+
                 'brands' => [
-                    ['name' => 'LabWorks', 'logo' => 'brands/labworks.png'],
-                    ['name' => 'ScienceCo', 'logo' => 'brands/scienceco.png'],
+                    [
+                        'name' => 'LabWorks',
+                        'logo' => 'brands/labworks.png',
+                        'image' => 'products/science-kits-labworks.jpg',
+                    ],
+                    [
+                        'name' => 'ScienceCo',
+                        'logo' => 'brands/scienceco.png',
+                        'image' => 'products/science-kits-scienceco.jpg',
+                    ],
                 ],
             ],
+
             [
                 'code' => 'MM-TB-04',
                 'number' => '04',
@@ -63,11 +104,21 @@ class ProductController extends Controller
                 'icon' => '▤',
                 'category' => 'Learning Materials',
                 'image' => 'products/textbooks.jpg',
+
                 'brands' => [
-                    ['name' => 'Rex Book Store', 'logo' => 'brands/rex.png'],
-                    ['name' => 'Vibal', 'logo' => 'brands/vibal.png'],
+                    [
+                        'name' => 'Rex Book Store',
+                        'logo' => 'brands/rex.png',
+                        'image' => 'products/textbooks-rex.jpg',
+                    ],
+                    [
+                        'name' => 'Vibal',
+                        'logo' => 'brands/vibal.png',
+                        'image' => 'products/textbooks-vibal.jpg',
+                    ],
                 ],
             ],
+
             [
                 'code' => 'MM-MT-05',
                 'number' => '05',
@@ -77,10 +128,16 @@ class ProductController extends Controller
                 'icon' => '○',
                 'category' => 'Early Learning',
                 'image' => 'products/manipulative-toys.jpg',
+
                 'brands' => [
-                    ['name' => 'PlayLearn', 'logo' => 'brands/playlearn.png'],
+                    [
+                        'name' => 'PlayLearn',
+                        'logo' => 'brands/playlearn.png',
+                        'image' => 'products/manipulative-toys-playlearn.jpg',
+                    ],
                 ],
             ],
+
             [
                 'code' => 'MM-OS-06',
                 'number' => '06',
@@ -90,7 +147,73 @@ class ProductController extends Controller
                 'icon' => '+',
                 'category' => 'General Supplies',
                 'image' => 'products/other-supplies.jpg',
+
                 'brands' => [],
+            ],
+
+
+
+
+            [
+                'code' => 'MI-SF-01',
+                'number' => '01',
+                'name' => 'School Furniture',
+                'description' => 'Durable classroom furniture designed for schools, government programs, and educational institutions.',
+                'long_description' => 'Our school furniture line includes chairs, desks, cabinets, and storage solutions built to withstand daily classroom use. Sourced to meet DepEd and government procurement specifications, with options for ergonomic design and bulk institutional orders.',
+                'icon' => '▣',
+                'category' => 'Furniture',
+                'image' => 'brands/steelcraft.png',
+
+                'brands' => [
+                    [
+                        'name' => 'Steelcraft',
+                        'logo' => 'brands/steelcraft.png',
+                        'image' => 'brands/steelcraft.png',
+                    ],
+                    [
+                        'name' => 'EduDesk',
+                        'logo' => 'brands/steelcraft.png',
+                        'image' => 'brands/steelcraft.png', 
+                    ],
+                    [
+                        'name' => 'Formline',
+                        'logo' => 'brands/formline.jpg',
+                        'image' => 'brands/formline.png',
+                    ],
+                ],
+            ],
+            [
+                'code' => 'MI-IT-02',
+                'number' => '02',
+                'name' => 'IT Equipment',
+                'description' => 'Laptops, tablets, computers, and technology equipment for education and government requirements.',
+                'long_description' => 'We supply laptops, desktops, tablets, projectors, and networking equipment configured for classroom and office deployment, including bulk imaging, warranty support, and compliance documentation for government bids.',
+                'icon' => '⌘',
+                'category' => 'Technology',
+                'image' => 'products/it-equipment.jpg',
+
+                'brands' => [
+                    [
+                        'name' => 'Lenovo',
+                        'logo' => 'brands/lenovo.jpg',
+                        'image' => 'brands/lenovo.jpg',
+                    ],
+                    [
+                        'name' => 'HP',
+                        'logo' => 'brands/hp.jpg',
+                        'image' => 'brands/hp.jpg',
+                    ],
+                    [
+                        'name' => 'Acer',
+                        'logo' => 'brands/acer.jpg',
+                        'image' => 'brands/acer.jpg',
+                    ],
+                    [
+                        'name' => 'Epson',
+                        'logo' => 'brands/epson.jpg',
+                        'image' => 'brands/epson.jpg',
+                    ],
+                ],
             ],
         ];
     }
