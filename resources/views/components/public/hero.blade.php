@@ -77,14 +77,14 @@
             </a>
 
             <a
-                href="{{ route('Export') }}"
-                aria-current="{{ $navContext === 'Export' ? 'page' : 'false' }}"
+                href="{{ route('export') }}"
+                aria-current="{{ $navContext === 'export' ? 'page' : 'false' }}"
                 class="border px-8 py-3.5 text-[11px] uppercase tracking-[0.14em] transition
                     {{ $navContext === 'import'
                         ? 'border-[#c8b89a] bg-[#c8b89a]/10 text-[#c8b89a]'
                         : 'border-white/25 text-white/80 hover:border-white/60 hover:text-white' }}"
             >
-                Export
+                export
             </a>
 
         </div>

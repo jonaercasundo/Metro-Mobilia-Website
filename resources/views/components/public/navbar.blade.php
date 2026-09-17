@@ -6,15 +6,43 @@
     */
 
     $isImportPage = request()->routeIs('import');
-    $isExportPage = request()->routeIs('Export');
+    $isExportPage = request()->routeIs('export');
 
-    if ($isExportPage) {
-        $navContext = 'Export';
+    /*
+    |--------------------------------------------------------------------------
+    | Product Catalog Context
+    |--------------------------------------------------------------------------
+    |
+    | Product catalog/show pages use ?type=import or ?type=export.
+    | Preserve that context when navigating through the navbar.
+    |
+    */
+
+    $isProductCatalog = request()->routeIs('products.catalog');
+    $isProductShow = request()->routeIs('products.show');
+
+    if ($isProductCatalog) {
+        $divisionRoute = strtolower(request()->get('type', 'export'));
+    } elseif ($isProductShow && isset($catalogType)) {
+        $divisionRoute = strtolower($catalogType);
+    } elseif ($isExportPage) {
+        $divisionRoute = 'export';
+    } elseif ($isImportPage) {
+        $divisionRoute = 'import';
     } else {
-        $navContext = 'import';
+        $divisionRoute = 'export';
     }
 
-    $onDivisionPage = $isImportPage || $isExportPage;
+    // Safety: only allow these two contexts
+    if (! in_array($divisionRoute, ['export', 'import'], true)) {
+        $divisionRoute = 'export';
+    }
+
+    $onDivisionPage =
+        $isImportPage ||
+        $isExportPage ||
+        $isProductCatalog ||
+        $isProductShow;
 @endphp
 
 <nav
@@ -30,41 +58,41 @@
             Logo + Context
         ============================================================= --}}
 
-<div class="flex items-center gap-4">
+        <div class="flex items-center gap-4">
 
-    <a
-        href="{{ route('home') }}"
-        class="flex items-center gap-3 no-underline"
-    >
-        {{-- Logo --}}
-        <img
-            src="{{ asset('images/logo.png') }}"
-            alt="Metro Mobilia Corporation"
-            class="h-[230px] w-auto max-w-none object-contain"
-        >
-    </a>
-
-    {{-- Import / Export Badge --}}
-    @if ($onDivisionPage)
-        <div
-            class="hidden items-center gap-1.5 rounded-full
-                   border border-[#c8b89a]/30
-                   bg-[#c8b89a]/10 px-3 py-1 sm:flex"
-        >
-            <span
-                class="h-1.5 w-1.5 rounded-full bg-[#c8b89a]"
-            ></span>
-
-            <span
-                class="text-[9px] font-medium uppercase
-                       tracking-[0.2em] text-[#c8b89a]"
+            <a
+                href="{{ route('home') }}"
+                class="flex items-center gap-3 no-underline"
             >
-                {{ ucfirst($navContext) }}
-            </span>
-        </div>
-    @endif
+                {{-- Logo --}}
+                <img
+                    src="{{ asset('images/logo.png') }}"
+                    alt="Metro Mobilia Corporation"
+                    class="h-[230px] w-auto max-w-none object-contain"
+                >
+            </a>
 
-</div>
+            {{-- Import / export Badge --}}
+            @if ($onDivisionPage)
+                <div
+                    class="hidden items-center gap-1.5 rounded-full
+                           border border-[#c8b89a]/30
+                           bg-[#c8b89a]/10 px-3 py-1 sm:flex"
+                >
+                    <span
+                        class="h-1.5 w-1.5 rounded-full bg-[#c8b89a]"
+                    ></span>
+
+                    <span
+                        class="text-[9px] font-medium uppercase
+                               tracking-[0.2em] text-[#c8b89a]"
+                    >
+                        {{ ucfirst($divisionRoute) }}
+                    </span>
+                </div>
+            @endif
+
+        </div>
 
 
         {{-- ============================================================
@@ -84,7 +112,7 @@
 
             {{-- About --}}
             <a
-                href="{{ route($navContext) }}#about"
+                href="{{ route($divisionRoute) }}#about"
                 class="text-[10px] uppercase tracking-[0.15em]
                        text-white/60 transition hover:text-white"
             >
@@ -93,7 +121,7 @@
 
             {{-- Products --}}
             <a
-                href="{{ route($navContext) }}#products"
+                href="{{ route($divisionRoute) }}#products"
                 class="text-[10px] uppercase tracking-[0.15em]
                        text-white/60 transition hover:text-white"
             >
@@ -102,7 +130,7 @@
 
             {{-- Credentials --}}
             <a
-                href="{{ route($navContext) }}#credentials"
+                href="{{ route($divisionRoute) }}#credentials"
                 class="text-[10px] uppercase tracking-[0.15em]
                        text-white/60 transition hover:text-white"
             >
@@ -111,7 +139,7 @@
 
             {{-- Clients --}}
             <a
-                href="{{ route($navContext) }}#clients"
+                href="{{ route($divisionRoute) }}#clients"
                 class="text-[10px] uppercase tracking-[0.15em]
                        text-white/60 transition hover:text-white"
             >
@@ -120,7 +148,7 @@
 
             {{-- Contact --}}
             <a
-                href="{{ route($navContext) }}#contact"
+                href="{{ route($divisionRoute) }}#contact"
                 class="text-[10px] uppercase tracking-[0.15em]
                        text-white/60 transition hover:text-white"
             >
@@ -131,19 +159,44 @@
 
 
         {{-- ============================================================
-            Desktop CTA
+            Desktop CTA + Division Switch
         ============================================================= --}}
 
-        <a
-            href="{{ route($navContext) }}#contact"
-            class="hidden border border-white/30 px-5 py-2.5
-                   text-[11px] uppercase tracking-[0.14em]
-                   text-white transition
-                   hover:bg-white hover:text-[#0d0d0d]
-                   lg:block"
-        >
-            Get a Quote
-        </a>
+        <div class="hidden items-center gap-4 lg:flex">
+
+            @if ($divisionRoute === 'import')
+                <a
+                    href="{{ route('export') }}"
+                    class="border border-white/30 px-5 py-2.5
+                           text-[11px] uppercase tracking-[0.14em]
+                           text-white transition
+                           hover:bg-white hover:text-[#0d0d0d]"
+                >
+                    export
+                </a>
+            @else
+                <a
+                    href="{{ route('import') }}"
+                    class="border border-white/30 px-5 py-2.5
+                           text-[11px] uppercase tracking-[0.14em]
+                           text-white transition
+                           hover:bg-white hover:text-[#0d0d0d]"
+                >
+                    Import
+                </a>
+            @endif
+
+            <a
+                href="{{ route($divisionRoute) }}#contact"
+                class="border border-white/30 px-5 py-2.5
+                       text-[11px] uppercase tracking-[0.14em]
+                       text-white transition
+                       hover:bg-white hover:text-[#0d0d0d]"
+            >
+                Get a Quote
+            </a>
+
+        </div>
 
 
         {{-- ============================================================
@@ -207,7 +260,7 @@
 
         <div class="space-y-1 px-6 py-5">
 
-            {{-- Import / Export Badge --}}
+            {{-- Import / export Badge --}}
             @if ($onDivisionPage)
                 <div
                     class="mb-2 flex w-fit items-center gap-1.5
@@ -222,7 +275,7 @@
                         class="text-[9px] font-medium uppercase
                                tracking-[0.2em] text-[#c8b89a]"
                     >
-                        {{ ucfirst($navContext) }}
+                        {{ ucfirst($divisionRoute) }}
                     </span>
                 </div>
             @endif
@@ -242,7 +295,7 @@
 
             {{-- About --}}
             <a
-                href="{{ route($navContext) }}#about"
+                href="{{ route($divisionRoute) }}#about"
                 @click="open = false"
                 class="block py-3 text-xs uppercase
                        tracking-[0.15em] text-white/60
@@ -254,7 +307,7 @@
 
             {{-- Products --}}
             <a
-                href="{{ route($navContext) }}#products"
+                href="{{ route($divisionRoute) }}#products"
                 @click="open = false"
                 class="block py-3 text-xs uppercase
                        tracking-[0.15em] text-white/60
@@ -266,7 +319,7 @@
 
             {{-- Credentials --}}
             <a
-                href="{{ route($navContext) }}#credentials"
+                href="{{ route($divisionRoute) }}#credentials"
                 @click="open = false"
                 class="block py-3 text-xs uppercase
                        tracking-[0.15em] text-white/60
@@ -278,7 +331,7 @@
 
             {{-- Clients --}}
             <a
-                href="{{ route($navContext) }}#clients"
+                href="{{ route($divisionRoute) }}#clients"
                 @click="open = false"
                 class="block py-3 text-xs uppercase
                        tracking-[0.15em] text-white/60
@@ -290,7 +343,7 @@
 
             {{-- Contact --}}
             <a
-                href="{{ route($navContext) }}#contact"
+                href="{{ route($divisionRoute) }}#contact"
                 @click="open = false"
                 class="block py-3 text-xs uppercase
                        tracking-[0.15em] text-white/60
@@ -300,9 +353,34 @@
             </a>
 
 
+            {{-- Division Switch --}}
+            @if ($divisionRoute === 'import')
+                <a
+                    href="{{ route('export') }}"
+                    @click="open = false"
+                    class="mt-3 block border border-white/20
+                           px-5 py-3 text-center text-xs uppercase
+                           tracking-[0.15em] text-white transition
+                           hover:bg-white hover:text-[#0d0d0d]"
+                >
+                    export
+                </a>
+            @else
+                <a
+                    href="{{ route('import') }}"
+                    @click="open = false"
+                    class="mt-3 block border border-white/20
+                           px-5 py-3 text-center text-xs uppercase
+                           tracking-[0.15em] text-white transition
+                           hover:bg-white hover:text-[#0d0d0d]"
+                >
+                    Import
+                </a>
+            @endif
+
             {{-- CTA --}}
             <a
-                href="{{ route($navContext) }}#contact"
+                href="{{ route($divisionRoute) }}#contact"
                 @click="open = false"
                 class="mt-3 block border border-white/20
                        px-5 py-3 text-center text-xs uppercase

@@ -1,48 +1,19 @@
 @php
-    $products = [
-        [
-            'code' => 'MM-SF-01',
-            'number' => '01',
-            'name' => 'School Furniture',
-            'description' => 'Durable classroom furniture designed for schools, government programs, and educational institutions.',
-            'icon' => '▣',
-        ],
-        [
-            'code' => 'MM-IT-02',
-            'number' => '02',
-            'name' => 'IT Equipment',
-            'description' => 'Laptops, tablets, computers, and technology equipment for education and government requirements.',
-            'icon' => '⌘',
-        ],
-        [
-            'code' => 'MM-MS-03',
-            'number' => '03',
-            'name' => 'Math & Science Kits',
-            'description' => 'Educational laboratory equipment, science kits, and learning materials for modern classrooms.',
-            'icon' => '◇',
-        ],
-        [
-            'code' => 'MM-TB-04',
-            'number' => '04',
-            'name' => 'Textbooks',
-            'description' => 'Educational books and learning resources supporting curriculum and institutional requirements.',
-            'icon' => '▤',
-        ],
-        [
-            'code' => 'MM-MT-05',
-            'number' => '05',
-            'name' => 'Manipulative Toys',
-            'description' => 'Hands-on educational materials designed to support early learning and classroom development.',
-            'icon' => '○',
-        ],
-        [
-            'code' => 'MM-OS-06',
-            'number' => '06',
-            'name' => 'Other Supplies',
-            'description' => 'Additional procurement categories sourced according to agency specifications and project requirements.',
-            'icon' => '+',
-        ],
-    ];
+    /*
+    |--------------------------------------------------------------------------
+    | Current Division
+    |--------------------------------------------------------------------------
+    */
+
+    $currentType = strtolower(
+        $catalogType
+        ?? request()->query('type')
+        ?? (request()->routeIs('import') ? 'import' : 'export')
+    );
+
+    if (! in_array($currentType, ['export', 'import'], true)) {
+        $currentType = 'export';
+    }
 @endphp
 
 <section id="products" class="bg-[#1a1a1a] px-6 py-20 text-white lg:px-12 lg:py-28">
@@ -66,9 +37,15 @@
                 </h1>
 
                 <p class="mt-7 max-w-2xl text-sm font-light leading-[1.9] text-white/40">
-                    We source and supply a range of educational, technology,
-                    furniture, and institutional products to support government
-                    programs, schools, and organizations nationwide.
+                    @if ($currentType === 'import')
+                        We source and supply imported furniture, home accessories,
+                        and specialty products from international sourcing partners
+                        to meet project and institutional requirements.
+                    @else
+                        We source and supply educational, technology, furniture,
+                        and institutional products for government programs,
+                        schools, and organizations nationwide.
+                    @endif
                 </p>
 
             </div>
@@ -76,45 +53,81 @@
             {{-- FULL CATALOG CTA --}}
             <div class="shrink-0">
                 <a
-                    href="{{ route('products.catalog') }}"
+                    href="{{ route('products.catalog', ['type' => $currentType]) }}"
                     class="group inline-flex items-center gap-4 border border-[#c8b89a]/30 px-5 py-3 text-[10px] uppercase tracking-[0.18em] text-[#c8b89a] transition duration-300 hover:border-[#c8b89a] hover:bg-[#c8b89a] hover:text-[#0d0d0d]"
                 >
-                    <span>View Full Catalog</span>
-                    <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    <span>View Full {{ ucfirst($currentType) }} Catalog</span>
+
+                    <span class="transition-transform duration-300 group-hover:translate-x-1">
+                        →
+                    </span>
                 </a>
             </div>
 
         </div>
 
-        {{-- PRODUCT GRID --}}
+
+        {{-- ============================================================
+            PRODUCT GRID
+        ============================================================= --}}
+
+        @php
+            /*
+            |--------------------------------------------------------------------------
+            | Filter Products By Current Division
+            |--------------------------------------------------------------------------
+            */
+
+            $divisionProducts = collect($products ?? [])
+                ->filter(function ($product) use ($currentType) {
+                    return strtolower($product['type'] ?? 'export') === $currentType;
+                })
+                ->values();
+        @endphp
+
+
         <div class="mt-14 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
 
-            @foreach($products as $product)
+            @forelse($divisionProducts as $index => $product)
 
-                <div class="group relative min-h-[300px] bg-[#1a1a1a] p-8 transition duration-300 hover:bg-[#222]">
+                <div
+                    class="group relative min-h-[300px] bg-[#1a1a1a] p-8 transition duration-300 hover:bg-[#222]"
+                >
 
                     {{-- Top row --}}
                     <div class="flex items-start justify-between">
 
-                        <div class="flex h-12 w-12 items-center justify-center border border-[#c8b89a]/25 text-xl font-light text-[#c8b89a] transition duration-300 group-hover:border-[#c8b89a]/60">
-                            {{ $product['icon'] }}
+                        <div
+                            class="flex h-12 w-12 items-center justify-center border border-[#c8b89a]/25 text-xl font-light text-[#c8b89a] transition duration-300 group-hover:border-[#c8b89a]/60"
+                        >
+                            {{ $product['icon'] ?? '◇' }}
                         </div>
 
-                        <span class="font-serif text-5xl font-light leading-none text-white/[0.04] transition duration-300 group-hover:text-white/[0.08]">
-                            {{ $product['number'] }}
+                        <span
+                            class="font-serif text-5xl font-light leading-none text-white/[0.04] transition duration-300 group-hover:text-white/[0.08]"
+                        >
+                            {{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}
                         </span>
 
                     </div>
+
 
                     {{-- Product information --}}
                     <div class="mt-12">
 
                         <div class="mb-3 flex items-center justify-between text-[9px] uppercase tracking-[0.18em] text-[#c8b89a]/60">
-                            <span>Product Category</span>
-                            <span class="text-white/25">{{ $product['code'] }}</span>
+                            <span>
+                                {{ ucfirst($currentType) }} Product
+                            </span>
+
+                            <span class="text-white/25">
+                                {{ $product['code'] }}
+                            </span>
                         </div>
 
-                        <h2 class="font-serif text-2xl font-light text-white transition duration-300 group-hover:text-[#c8b89a]">
+                        <h2
+                            class="font-serif text-2xl font-light text-white transition duration-300 group-hover:text-[#c8b89a]"
+                        >
                             {{ $product['name'] }}
                         </h2>
 
@@ -123,6 +136,7 @@
                         </p>
 
                     </div>
+
 
                     {{-- Bottom --}}
                     <div class="absolute bottom-7 left-8 right-8 flex items-center justify-between">
@@ -140,50 +154,105 @@
 
                     </div>
 
+
                     {{-- Hover accent --}}
-                    <div class="absolute bottom-0 left-0 h-[3px] w-full origin-left scale-x-0 bg-[#c8b89a] transition duration-500 group-hover:scale-x-100"></div>
+                    <div
+                        class="absolute bottom-0 left-0 h-[3px] w-full origin-left scale-x-0 bg-[#c8b89a] transition duration-500 group-hover:scale-x-100"
+                    ></div>
 
                 </div>
 
-            @endforeach
+            @empty
+
+                <div class="col-span-full bg-[#1a1a1a] px-8 py-16 text-center">
+
+                    <p class="text-xs uppercase tracking-[0.18em] text-white/30">
+                        No {{ $currentType }} products available.
+                    </p>
+
+                </div>
+
+            @endforelse
 
         </div>
 
-        {{-- SOURCING STATEMENT --}}
+
+        {{-- ============================================================
+            SOURCING STATEMENT
+        ============================================================= --}}
+
         <div class="mt-12 grid gap-px border border-white/10 bg-white/10 md:grid-cols-[1fr_auto]">
 
             <div class="bg-[#222] p-7 md:p-8">
 
                 <div class="mb-4 flex items-center gap-3 text-[9px] uppercase tracking-[0.2em] text-white/30">
                     <span class="h-px w-6 bg-[#c8b89a]/60"></span>
-                    Sourcing & Procurement
+
+                    @if ($currentType === 'import')
+                        Import Sourcing
+                    @else
+                        Sourcing & Procurement
+                    @endif
                 </div>
 
                 <p class="max-w-3xl text-sm font-light leading-[1.8] text-white/45">
-                    Product availability and specifications may vary depending
-                    on project requirements. Our team works with manufacturers,
-                    suppliers, and sourcing partners to identify products that
-                    meet the required specifications.
+
+                    @if ($currentType === 'import')
+
+                        Product availability and specifications may vary depending
+                        on project requirements. Our team works with international
+                        manufacturers, suppliers, and sourcing partners to identify
+                        products that meet the required specifications.
+
+                    @else
+
+                        Product availability and specifications may vary depending
+                        on project requirements. Our team works with manufacturers,
+                        suppliers, and sourcing partners to identify products that
+                        meet the required specifications.
+
+                    @endif
+
                 </p>
 
             </div>
 
+
             <div class="flex items-center bg-[#222] p-7 md:p-8">
+
                 <a
-                    href="{{ route('contact') }}"
+                    href="{{ route($currentType === 'import' ? 'import' : 'export') }}#contact"
                     class="group inline-flex items-center gap-4 border border-[#c8b89a]/30 px-5 py-3 text-[10px] uppercase tracking-[0.18em] text-[#c8b89a] transition duration-300 hover:border-[#c8b89a] hover:bg-[#c8b89a] hover:text-[#0d0d0d]"
                 >
-                    <span>Discuss Your Requirements</span>
-                    <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    <span>
+                        Discuss Your Requirements
+                    </span>
+
+                    <span class="transition-transform duration-300 group-hover:translate-x-1">
+                        →
+                    </span>
                 </a>
+
             </div>
 
         </div>
 
+
         {{-- FOOTNOTE --}}
         <div class="mt-6 flex flex-col gap-2 text-[9px] uppercase tracking-[0.16em] text-white/20 sm:flex-row sm:items-center sm:justify-between">
-            <span>Metro Mobilia Corporation</span>
-            <span>Education · Technology · Procurement</span>
+
+            <span>
+                Metro Mobilia Corporation
+            </span>
+
+            <span>
+                @if ($currentType === 'import')
+                    Import · Sourcing · Home & Living
+                @else
+                    Education · Technology · Procurement
+                @endif
+            </span>
+
         </div>
 
     </div>

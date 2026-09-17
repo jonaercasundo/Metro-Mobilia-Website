@@ -55,33 +55,8 @@
             <em class="text-[#c8b89a]">Passion</em> in Every Detail.
         </h1>
         <p class="mx-auto mt-6 max-w-xl text-sm font-light leading-[1.9] text-white/55 sm:text-[15px]">
-            Driven by Precision in Every Piece, Passion in Every Detail, Metro Mobilia Export crafts living, dining, and bedroom collections for global markets. Experience our materials and finalize specifications at our Shenzhen and Ho Chi Minh City showrooms.
+            Driven by Precision in Every Piece, Passion in Every Detail, Metro Mobilia crafts living, dining, and bedroom collections for global markets. Experience our materials and finalize specifications at our Shenzhen and Ho Chi Minh City showrooms.
         </p>
-        <div class="mt-10 flex flex-wrap justify-center gap-4">
-
-            <a
-                href="{{ route('import') }}"
-                aria-current="{{ $navContext === 'import' ? 'page' : 'false' }}"
-                class="border px-8 py-3.5 text-[11px] uppercase tracking-[0.14em] transition
-                    {{ $navContext === 'import'
-                        ? 'border-[#c8b89a] bg-[#c8b89a]/10 text-[#c8b89a]'
-                        : 'border-white/25 text-white/80 hover:border-white/60 hover:text-white' }}"
-            >
-                Import
-            </a>
-
-            <a
-                href="{{ route('Export') }}"
-                aria-current="{{ $navContext === 'Export' ? 'page' : 'false' }}"
-                class="px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] transition
-                    {{ $navContext === 'Export'
-                        ? 'bg-[#c8b89a] text-[#0d0d0d]'
-                        : 'bg-[#f5f3ee] text-[#0d0d0d] hover:bg-white' }}"
-            >
-                Export
-            </a>
-
-        </div>
     </div>
 
 </section>

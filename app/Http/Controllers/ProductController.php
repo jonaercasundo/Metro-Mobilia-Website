@@ -6,13 +6,31 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    protected function products(): array
+    /**
+     * --------------------------------------------------------------------------
+     * Product Data
+     * --------------------------------------------------------------------------
+     *
+     * Central source of product information for:
+     * - Import landing page
+     * - Export landing page
+     * - Product catalog
+     * - Product detail page
+     */
+    public function products(): array
     {
         return [
+            /*
+            |--------------------------------------------------------------------------
+            | EXPORT PRODUCTS
+            |--------------------------------------------------------------------------
+            */
+
             [
                 'code' => 'MM-SF-01',
                 'number' => '01',
                 'name' => 'School Furniture',
+                'type' => 'export',
                 'description' => 'Durable classroom furniture designed for schools, government programs, and educational institutions.',
                 'long_description' => 'Our school furniture line includes chairs, desks, cabinets, and storage solutions built to withstand daily classroom use. Sourced to meet DepEd and government procurement specifications, with options for ergonomic design and bulk institutional orders.',
                 'icon' => '▣',
@@ -42,6 +60,7 @@ class ProductController extends Controller
                 'code' => 'MM-IT-02',
                 'number' => '02',
                 'name' => 'IT Equipment',
+                'type' => 'export',
                 'description' => 'Laptops, tablets, computers, and technology equipment for education and government requirements.',
                 'long_description' => 'We supply laptops, desktops, tablets, projectors, and networking equipment configured for classroom and office deployment, including bulk imaging, warranty support, and compliance documentation for government bids.',
                 'icon' => '⌘',
@@ -71,10 +90,12 @@ class ProductController extends Controller
                     ],
                 ],
             ],
+
             [
                 'code' => 'MM-MS-03',
                 'number' => '03',
                 'name' => 'Math & Science Kits',
+                'type' => 'export',
                 'description' => 'Educational laboratory equipment, science kits, and learning materials for modern classrooms.',
                 'long_description' => 'Hands-on science and math learning kits including lab apparatus, measurement tools, and experiment sets designed to align with curriculum standards for elementary and secondary education.',
                 'icon' => '◇',
@@ -99,6 +120,7 @@ class ProductController extends Controller
                 'code' => 'MM-TB-04',
                 'number' => '04',
                 'name' => 'Textbooks',
+                'type' => 'export',
                 'description' => 'Educational books and learning resources supporting curriculum and institutional requirements.',
                 'long_description' => 'Curriculum-aligned textbooks and supplementary learning resources sourced from approved publishers, supporting institutional and government education programs at scale.',
                 'icon' => '▤',
@@ -123,6 +145,7 @@ class ProductController extends Controller
                 'code' => 'MM-MT-05',
                 'number' => '05',
                 'name' => 'Manipulative Toys',
+                'type' => 'export',
                 'description' => 'Hands-on educational materials designed to support early learning and classroom development.',
                 'long_description' => 'Early-learning manipulatives and developmental toys designed to support motor skills, cognitive development, and classroom engagement for pre-school and early elementary programs.',
                 'icon' => '○',
@@ -173,116 +196,322 @@ class ProductController extends Controller
                 ],
             ],
 
-            [
-                'code' => 'MM-OS-06',
-                'number' => '06',
-                'name' => 'Other Supplies',
-                'description' => 'Additional procurement categories sourced according to agency specifications and project requirements.',
-                'long_description' => 'Beyond our core categories, we source additional supplies and equipment based on agency-specific specifications, including custom procurement requests for specialized programs.',
-                'icon' => '+',
-                'category' => 'General Supplies',
-                'image' => 'products/other-supplies.jpg',
-
-                'brands' => [],
-            ],
-
-
-
+            /*
+            |--------------------------------------------------------------------------
+            | IMPORT PRODUCTS
+            |--------------------------------------------------------------------------
+            */
 
             [
-                'code' => 'MI-SF-01',
+                'code' => 'MI-FUR-01',
                 'number' => '01',
-                'name' => 'School Furniture',
-                'description' => 'Durable classroom furniture designed for schools, government programs, and educational institutions.',
-                'long_description' => 'Our school furniture line includes chairs, desks, cabinets, and storage solutions built to withstand daily classroom use. Sourced to meet DepEd and government procurement specifications, with options for ergonomic design and bulk institutional orders.',
-                'icon' => '▣',
+                'name' => 'Furniture',
+                'type' => 'import',
+                'description' => 'Durable furniture designed for residential and commercial use, including bedroom, living room, and office furniture.',
+                'long_description' => 'We design and manufacture a full range of furniture — from beds and sofas to desks and chairs — supplied factory-direct from our showrooms in Shenzhen and Ho Chi Minh City.',
+                'icon' => '🪑',
                 'category' => 'Furniture',
-                'image' => 'brands/steelcraft.png',
+                'image' => 'brands/bedroom_1.png',
 
                 'brands' => [
                     [
-                        'name' => 'Steelcraft',
-                        'logo' => 'brands/steelcraft.png',
-                        'image' => 'brands/steelcraft.png',
+                        'name' => 'AALTO 5-TIER SHELF STAND',
+                        'logo' => 'brands/bedroom_1.png',
+                        'image' => 'brands/bedroom_1.png',
                     ],
                     [
-                        'name' => 'EduDesk',
-                        'logo' => 'brands/steelcraft.png',
-                        'image' => 'brands/steelcraft.png', 
+                        'name' => 'DIONNE RACK',
+                        'logo' => 'brands/bedroom_2.png',
+                        'image' => 'brands/bedroom_2.png',
                     ],
                     [
-                        'name' => 'Formline',
-                        'logo' => 'brands/formline.jpg',
-                        'image' => 'brands/formline.png',
+                        'name' => 'EMERY DRESSER',
+                        'logo' => 'brands/bedroom_3.png',
+                        'image' => 'brands/bedroom_3.png',
+                    ],
+                    [
+                        'name' => 'EMERY NIGHTSTAND',
+                        'logo' => 'brands/bedroom_4.png',
+                        'image' => 'brands/bedroom_4.png',
+                    ],
+                    [
+                        'name' => 'CELESTE END TABLE',
+                        'logo' => 'brands/fur_1.png',
+                        'image' => 'brands/fur_1.png',
                     ],
                 ],
             ],
+
             [
-                'code' => 'MI-IT-02',
+                'code' => 'MI-BAS-02',
                 'number' => '02',
-                'name' => 'IT Equipment',
-                'description' => 'Laptops, tablets, computers, and technology equipment for education and government requirements.',
-                'long_description' => 'We supply laptops, desktops, tablets, projectors, and networking equipment configured for classroom and office deployment, including bulk imaging, warranty support, and compliance documentation for government bids.',
-                'icon' => '⌘',
-                'category' => 'Technology',
-                'image' => 'products/it-equipment.jpg',
+                'name' => 'Basket & Storage',
+                'type' => 'import',
+                'description' => 'Durable baskets and storage solutions designed for residential and commercial use.',
+                'long_description' => 'We design and manufacture a full range of baskets and storage solutions — from woven baskets and storage bins to shelving units and organizers — supplied factory-direct from our showrooms in Shenzhen and Ho Chi Minh City.',
+                'icon' => '🧺',
+                'category' => 'Furniture',
+                'image' => 'brands/bas_1.png',
 
                 'brands' => [
                     [
-                        'name' => 'Lenovo',
-                        'logo' => 'brands/lenovo.jpg',
-                        'image' => 'brands/lenovo.jpg',
+                        'name' => 'Lazio Set of 3 (Small)',
+                        'logo' => 'brands/bas_1.png',
+                        'image' => 'brands/bas_1.png',
                     ],
                     [
-                        'name' => 'HP',
-                        'logo' => 'brands/hp.jpg',
-                        'image' => 'brands/hp.jpg',
+                        'name' => 'Lucca Set of 3 (Small)',
+                        'logo' => 'brands/bas_2.png',
+                        'image' => 'brands/bas_2.png',
                     ],
                     [
-                        'name' => 'Acer',
-                        'logo' => 'brands/acer.jpg',
-                        'image' => 'brands/acer.jpg',
+                        'name' => 'Imola Set of 2 (Large)',
+                        'logo' => 'brands/bas_3.png',
+                        'image' => 'brands/bas_3.png',
                     ],
                     [
-                        'name' => 'Epson',
-                        'logo' => 'brands/epson.jpg',
-                        'image' => 'brands/epson.jpg',
+                        'name' => 'Ercolano Set of 2 (Medium)',
+                        'logo' => 'brands/bas_4.png',
+                        'image' => 'brands/bas_4.png',
+                    ],
+                ],
+            ],
+
+            [
+                'code' => 'MI-CH-03',
+                'number' => '03',
+                'name' => 'Kitchen & Dining Furniture',
+                'type' => 'import',
+                'description' => 'Durable kitchen and dining furniture designed for residential and commercial use.',
+                'long_description' => 'We design and manufacture a full range of kitchen and dining furniture — from countertops and cabinets to dining tables and chairs — supplied factory-direct from our showrooms in Shenzhen and Ho Chi Minh City.',
+                'icon' => '🍽️',
+                'category' => 'Furniture',
+                'image' => 'brands/kit_1.png',
+
+                'brands' => [
+                    [
+                        'name' => 'Candle Holder - D7.9 x H15.2 cm',
+                        'logo' => 'brands/kit_1.png',
+                        'image' => 'brands/kit_1.png',
+                    ],
+                    [
+                        'name' => 'Candle holder - D12 H18.5 cm',
+                        'logo' => 'brands/kit_2.png',
+                        'image' => 'brands/kit_2.png',
+                    ],
+                    [
+                        'name' => 'Noguchi Candle Holder S/2',
+                        'logo' => 'brands/kit_3.png',
+                        'image' => 'brands/kit_3.png',
+                    ],
+                    [
+                        'name' => 'Bertoia Candle Light',
+                        'logo' => 'brands/kit_4.png',
+                        'image' => 'brands/kit_4.png',
+                    ],
+                ],
+            ],
+
+            [
+                'code' => 'MI-DEC-04',
+                'number' => '04',
+                'name' => 'Decorative Accessories',
+                'type' => 'import',
+                'description' => 'Durable decorative accessories designed for residential and commercial use.',
+                'long_description' => 'We design and manufacture a full range of decorative accessories — from vases and sculptures to lighting and textiles — supplied factory-direct from our showrooms in Shenzhen and Ho Chi Minh City.',
+                'icon' => '🖼️',
+                'category' => 'Furniture',
+                'image' => 'brands/dec_1.png',
+
+                'brands' => [
+                    [
+                        'name' => 'Famille Table Top',
+                        'logo' => 'brands/dec_1.png',
+                        'image' => 'brands/dec_1.png',
+                    ],
+                    [
+                        'name' => 'Emme Letter Blocks Decorative',
+                        'logo' => 'brands/dec_2.png',
+                        'image' => 'brands/dec_2.png',
+                    ],
+                    [
+                        'name' => 'Rr Letter Blocks Decorative',
+                        'logo' => 'brands/dec_3.png',
+                        'image' => 'brands/dec_3.png',
+                    ],
+                    [
+                        'name' => 'Flaminia Wall Art Decor',
+                        'logo' => 'brands/dec_4.png',
+                        'image' => 'brands/dec_4.png',
+                    ],
+                    [
+                        'name' => 'Marmorata rectangular storage box',
+                        'logo' => 'brands/dec_5.png',
+                        'image' => 'brands/dec_5.png',
+                    ],
+                    [
+                        'name' => '"Sicily S/2S - Decorative Basket in Banana Weave"',
+                        'logo' => 'brands/dec_6.png',
+                        'image' => 'brands/dec_6.png',
+                    ],
+                ],
+            ],
+
+            [
+                'code' => 'MI-OFF-05',
+                'number' => '05',
+                'name' => 'Lantern',
+                'type' => 'import',
+                'description' => 'Durable lanterns designed for residential and commercial use.',
+                'long_description' => 'We design and manufacture a full range of lanterns — from table lanterns and hanging lanterns to outdoor lanterns and decorative lighting — supplied factory-direct from our showrooms in Shenzhen and Ho Chi Minh City.',
+                'icon' => '🏮',
+                'category' => 'Furniture',
+                'image' => 'brands/lan_1.png',
+
+                'brands' => [
+                    [
+                        'name' => 'Bristol Lantern Brown - Small',
+                        'logo' => 'brands/lan_1.png',
+                        'image' => 'brands/lan_1.png',
+                    ],
+                    [
+                        'name' => 'Bristol Lantern Brown - Large',
+                        'logo' => 'brands/lan_2.png',
+                        'image' => 'brands/lan_2.png',
+                    ],
+                    [
+                        'name' => 'Cecile Lantern - Large',
+                        'logo' => 'brands/lan_3.png',
+                        'image' => 'brands/lan_3.png',
+                    ],
+                    [
+                        'name' => 'Bristol Lantern with metal roof',
+                        'logo' => 'brands/lan_4.png',
+                        'image' => 'brands/lan_4.png',
+                    ],
+                    [
+                        'name' => 'Baring Lantern with Ring Handle and Clear Glass',
+                        'logo' => 'brands/lan_5.png',
+                        'image' => 'brands/lan_5.png',
+                    ],
+                    [
+                        'name' => 'Adams Small Lantern w/ Metal Strips & Natural Rope Handle',
+                        'logo' => 'brands/lan_6.png',
+                        'image' => 'brands/lan_6.png',
                     ],
                 ],
             ],
         ];
     }
 
-    public function catalog(Request $request)
+    /**
+     * --------------------------------------------------------------------------
+     * Get Products By Type
+     * --------------------------------------------------------------------------
+     */
+    public function productsByType(string $type): array
     {
-        $products = $this->products();
+        $type = strtolower($type);
 
-        if ($request->filled('category')) {
-            $products = array_values(array_filter(
-                $products,
-                fn ($product) => $product['category'] === $request->get('category')
-            ));
+        if (! in_array($type, ['export', 'import'], true)) {
+            $type = 'export';
         }
 
-        $categories = collect($this->products())->pluck('category')->unique()->values();
+        return array_values(
+            array_filter(
+                $this->products(),
+                fn ($product) =>
+                    strtolower($product['type'] ?? '') === $type
+            )
+        );
+    }
+
+    /**
+     * --------------------------------------------------------------------------
+     * Product Catalog
+     * --------------------------------------------------------------------------
+     */
+    public function catalog(Request $request)
+    {
+        $catalogType = strtolower(
+            $request->query('type', 'export')
+        );
+
+        // Only allow Import or Export
+        if (! in_array($catalogType, ['export', 'import'], true)) {
+            $catalogType = 'export';
+        }
+
+        // Get products for the selected division
+        $products = $this->productsByType($catalogType);
+
+        // Filter by category if selected
+        $activeCategory = $request->query('category');
+
+        if ($activeCategory) {
+            $products = array_values(
+                array_filter(
+                    $products,
+                    fn ($product) =>
+                        ($product['category'] ?? '') === $activeCategory
+                )
+            );
+        }
+
+        // Get categories ONLY from the current division
+        $categories = collect(
+            $this->productsByType($catalogType)
+        )
+            ->pluck('category')
+            ->filter()
+            ->unique()
+            ->values();
 
         return view('products.catalog', [
             'products' => $products,
             'categories' => $categories,
-            'activeCategory' => $request->get('category'),
+            'activeCategory' => $activeCategory,
+            'catalogType' => $catalogType,
         ]);
     }
 
+    /**
+     * --------------------------------------------------------------------------
+     * Product Detail
+     * --------------------------------------------------------------------------
+     */
     public function show(string $code)
     {
-        $product = collect($this->products())->firstWhere('code', $code);
+        $product = collect($this->products())
+            ->firstWhere('code', $code);
 
         if (! $product) {
             abort(404);
         }
 
+        $catalogType = strtolower(
+            $product['type'] ?? 'export'
+        );
+
         return view('products.show', [
             'product' => $product,
+            'catalogType' => $catalogType,
+        ]);
+    }
+
+    public function import()
+    {
+        return view('import', [
+            'products' => $this->productsByType('import'),
+            'catalogType' => 'import',
+        ]);
+    }
+
+    public function export()
+    {
+        return view('export', [
+            'products' => $this->productsByType('export'),
+            'catalogType' => 'export',
         ]);
     }
 }

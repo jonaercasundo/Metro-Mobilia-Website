@@ -10,7 +10,7 @@
     >
 
     <title>
-        Export Division — Metro Mobilia Corporation
+        export Division — Metro Mobilia Corporation
     </title>
 
     <meta
@@ -61,16 +61,11 @@
         <x-export.about />
 
         {{-- Products --}}
-        <x-export.products />
+        <x-export.products :products="$products" catalog-type="export" />
 
         {{-- Warehouse --}}
         <x-export.warehouse />
 
-        {{-- Credentials --}}
-        <x-export.credentials />
-
-        {{-- Clients --}}
-        <x-export.clients />
 
         {{-- Contact --}}
         <x-export.contact />

@@ -10,11 +10,13 @@ class Products extends Component
 {
     /**
      * Create a new component instance.
+     *
+     * @param  array<int, array<string, mixed>>  $products
      */
-    public function __construct()
-    {
-        //
-    }
+    public function __construct(
+        public array $products = [],
+        public string $catalogType = 'export',
+    ) {}
 
     /**
      * Get the view / contents that represent the component.

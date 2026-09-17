@@ -51,7 +51,10 @@
 
         <x-import.about />
 
-        <x-import.products />
+        <x-import.products
+            :products="$products"
+            catalog-type="import"
+        />
 
         <x-import.warehouse />
 

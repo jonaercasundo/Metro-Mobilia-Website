@@ -35,8 +35,11 @@
 
             {{-- Breadcrumb --}}
             <nav aria-label="Breadcrumb" class="mb-8 flex items-center gap-2.5 text-[10px] uppercase tracking-[0.2em] text-white/40 md:mb-12">
-                <a href="{{ route('products.catalog') }}" class="transition-colors hover:text-[#c8b89a] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c8b89a]">
-                    Catalog
+                <a
+                    href="{{ route('products.catalog', ['type' => $catalogType]) }}"
+                    class="transition-colors hover:text-[#c8b89a] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c8b89a]"
+                >
+                    {{ ucfirst($catalogType) }} Catalog
                 </a>
                 <span class="text-white/20">/</span>
                 <span class="truncate text-[#c8b89a]" aria-current="page">{{ $product['name'] }}</span>
@@ -165,11 +168,17 @@
                     <div>
                         {{-- Meta Tags --}}
                         <div class="mb-4 flex flex-wrap items-center gap-3 text-[10px] font-medium uppercase tracking-[0.2em]">
-                            <span class="rounded-full bg-[#c8b89a]/10 px-3 py-1 text-[#c8b89a]">
+
+                            {{-- Import / export --}}
+                            <span class="rounded-full border border-[#c8b89a]/30 bg-[#c8b89a]/10 px-3 py-1 text-[#c8b89a]">
+                                {{ strtoupper($catalogType) }}
+                            </span>
+
+                            {{-- Category --}}
+                            <span class="rounded-full bg-white/5 px-3 py-1 text-white/50">
                                 {{ $product['category'] }}
                             </span>
-                            <span class="text-white/20">•</span>
-                            <span class="text-white/40">SKU: {{ $product['code'] }}</span>
+
                         </div>
 
                         {{-- Header --}}
@@ -191,7 +200,7 @@
                             <div class="mt-10 border-t border-white/10 pt-8">
                                 <div class="mb-4 flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-white/40">
                                     <span class="h-px w-5 bg-[#c8b89a]"></span>
-                                    <span>Compatible & Available Brands</span>
+                                    <span>Products</span>
                                 </div>
 
                                 <div class="flex flex-wrap gap-3">
@@ -234,11 +243,14 @@
                             </a>
 
                             <a
-                                href="{{ route('products.catalog') }}"
+                                href="{{ route('products.catalog', ['type' => $catalogType]) }}"
                                 class="inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-sm border border-white/15 px-8 py-4 text-[11px] font-semibold uppercase leading-none tracking-[0.2em] text-white/60 transition duration-300 hover:border-white/40 hover:bg-white/[0.03] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                             >
                                 <span class="text-base" aria-hidden="true">←</span>
-                                <span>Back to Catalog</span>
+
+                                <span>
+                                    Back to {{ ucfirst($catalogType) }} Catalog
+                                </span>
                             </a>
                         </div>
                     </div>

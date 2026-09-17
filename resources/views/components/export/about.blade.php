@@ -40,7 +40,7 @@
                             text-sm font-light
                             leading-[1.9] text-[#555]"
                     >
-                        Metro Mobilia Export is a home furniture manufacturer with showrooms in China and Vietnam. We design and produce living, dining, and bedroom furniture — built with lasting materials and finished to satisfy the most discerning buyers worldwide.
+                        Metro Mobilia is a home furniture manufacturer with showrooms in China and Vietnam. We design and produce living, dining, and bedroom furniture — built with lasting materials and finished to satisfy the most discerning buyers worldwide.
                     </p>
 
 

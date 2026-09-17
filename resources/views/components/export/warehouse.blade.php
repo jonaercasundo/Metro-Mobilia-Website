@@ -30,186 +30,184 @@
                 <div class="mt-14 grid items-stretch gap-3 lg:grid-cols-[1.15fr_0.85fr]">
 
 
-                {{-- IMAGE CAROUSEL --}}
-                <div
-                    x-data="{
-                        active: 0,
-                        images: [
-                            {
-                                src: '{{ asset('images/warehouse.jpg') }}',
-                                alt: 'Metro Mobilia warehouse operations',
-                                label: 'Operations',
-                                caption: 'Reliable logistics, organized inventory, and coordinated delivery supporting projects across the Philippines.'
+                    {{-- IMAGE CAROUSEL --}}
+                    <div
+                        x-data="{
+                            active: 0,
+                            images: [
+                                {
+                                    src: '{{ asset('images/warehouse.jpg') }}',
+                                    alt: 'Metro Mobilia warehouse operations',
+                                    label: 'Operations',
+                                    caption: 'Reliable logistics, organized inventory, and coordinated delivery supporting projects across the Philippines.'
+                                },
+                                {
+                                    src: '{{ asset('images/warehouse-2.jpg') }}',
+                                    alt: 'Metro Mobilia warehouse inventory',
+                                    label: 'Inventory',
+                                    caption: 'Organized inventory management ensuring products are prepared and available for every project.'
+                                },
+                                {
+                                    src: '{{ asset('images/warehouse-3.jpg') }}',
+                                    alt: 'Metro Mobilia logistics operations',
+                                    label: 'Logistics',
+                                    caption: 'Coordinated logistics and delivery operations connecting our facilities with projects nationwide.'
+                                }
+                            ],
+                            autoplay: null,
+
+                            startAutoplay() {
+                                this.autoplay = setInterval(() => {
+                                    this.next()
+                                }, 5000)
                             },
-                            {
-                                src: '{{ asset('images/warehouse-2.jpg') }}',
-                                alt: 'Metro Mobilia warehouse inventory',
-                                label: 'Inventory',
-                                caption: 'Organized inventory management ensuring products are prepared and available for every project.'
+
+                            stopAutoplay() {
+                                clearInterval(this.autoplay)
                             },
-                            {
-                                src: '{{ asset('images/warehouse-3.jpg') }}',
-                                alt: 'Metro Mobilia logistics operations',
-                                label: 'Logistics',
-                                caption: 'Coordinated logistics and delivery operations connecting our facilities with projects nationwide.'
+
+                            next() {
+                                this.active = (this.active + 1) % this.images.length
+                            },
+
+                            previous() {
+                                this.active =
+                                    (this.active - 1 + this.images.length) % this.images.length
                             }
-                        ],
-                        autoplay: null,
-
-                        startAutoplay() {
-                            this.autoplay = setInterval(() => {
-                                this.next()
-                            }, 5000)
-                        },
-
-                        stopAutoplay() {
-                            clearInterval(this.autoplay)
-                        },
-
-                        next() {
-                            this.active = (this.active + 1) % this.images.length
-                        },
-
-                        previous() {
-                            this.active =
-                                (this.active - 1 + this.images.length) % this.images.length
-                        }
-                    }"
-                    x-init="startAutoplay()"
-                    @mouseenter="stopAutoplay()"
-                    @mouseleave="startAutoplay()"
-                    class="group relative min-h-[460px] overflow-hidden bg-[#222]"
-                 >
-
-                    {{-- Images --}}
-                    <template x-for="(image, index) in images" :key="index">
-
-                        <div
-                            x-show="active === index"
-                            x-transition:enter="transition-opacity duration-700"
-                            x-transition:enter-start="opacity-0"
-                            x-transition:enter-end="opacity-100"
-                            x-transition:leave="transition-opacity duration-700"
-                            x-transition:leave-start="opacity-100"
-                            x-transition:leave-end="opacity-0"
-                            class="absolute inset-0"
-                        >
-
-                            <img
-                                :src="image.src"
-                                :alt="image.alt"
-                                class="h-full w-full object-cover opacity-80 transition duration-700 group-hover:scale-105"
-                            >
-
-                            {{-- Overlay --}}
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
-
-                            {{-- Image Label --}}
-                            <div class="absolute left-7 top-7 border border-white/20 bg-black/20 px-3 py-2 backdrop-blur-sm">
-                                <span
-                                    x-text="image.label"
-                                    class="text-[9px] uppercase tracking-[0.18em] text-white/60"
-                                ></span>
-                            </div>
-
-                            {{-- Image Caption --}}
-                            <div class="absolute bottom-0 left-0 right-0 p-7 lg:p-9">
-
-                                <div class="mb-3 flex items-center gap-3">
-                                    <span class="h-px w-7 bg-[#c8b89a]"></span>
-
-                                    <span class="text-[9px] uppercase tracking-[0.18em] text-white/50">
-                                        Metro Mobilia Corporation
-                                    </span>
-                                </div>
-
-                                <p
-                                    x-text="image.caption"
-                                    class="max-w-lg font-serif text-lg font-light italic leading-[1.6] text-white/75"
-                                ></p>
-
-                            </div>
-
-                        </div>
-
-                    </template>
-
-
-                    {{-- Previous Button --}}
-                    <button
-                        type="button"
-                        @click="previous()"
-                        aria-label="Previous image"
-                        class="absolute left-5 top-1/2 z-20 -translate-y-1/2
-                            border border-white/20 bg-black/20 p-3
-                            text-white/70 backdrop-blur-sm
-                            transition hover:border-white/40 hover:bg-black/40 hover:text-white"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-4 w-4"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M15 19l-7-7 7-7"
-                            />
-                        </svg>
-                    </button>
-
-
-                    {{-- Next Button --}}
-                    <button
-                        type="button"
-                        @click="next()"
-                        aria-label="Next image"
-                        class="absolute right-5 top-1/2 z-20 -translate-y-1/2
-                            border border-white/20 bg-black/20 p-3
-                            text-white/70 backdrop-blur-sm
-                            transition hover:border-white/40 hover:bg-black/40 hover:text-white"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-4 w-4"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M9 5l7 7-7 7"
-                            />
-                        </svg>
-                    </button>
-
-
-                    {{-- Carousel Indicators --}}
-                    <div class="absolute bottom-7 right-7 z-20 flex items-center gap-2">
-
+                        }"
+                        x-init="startAutoplay()"
+                        @mouseenter="stopAutoplay()"
+                        @mouseleave="startAutoplay()"
+                        class="group relative min-h-[460px] overflow-hidden bg-[#222]"
+                     >
+                        {{-- Images --}}
                         <template x-for="(image, index) in images" :key="index">
 
-                            <button
-                                type="button"
-                                @click="active = index"
-                                :aria-label="'Go to image ' + (index + 1)"
-                                :class="active === index
-                                    ? 'w-8 bg-[#c8b89a]'
-                                    : 'w-2 bg-white/40 hover:bg-white/70'"
-                                class="h-1.5 rounded-full transition-all duration-500"
-                            ></button>
+                            <div
+                                x-show="active === index"
+                                x-transition:enter="transition-opacity duration-700"
+                                x-transition:enter-start="opacity-0"
+                                x-transition:enter-end="opacity-100"
+                                x-transition:leave="transition-opacity duration-700"
+                                x-transition:leave-start="opacity-100"
+                                x-transition:leave-end="opacity-0"
+                                class="absolute inset-0"
+                            >
+
+                                <img
+                                    :src="image.src"
+                                    :alt="image.alt"
+                                    class="h-full w-full object-cover opacity-80 transition duration-700 group-hover:scale-105"
+                                >
+
+                                {{-- Overlay --}}
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
+
+                                {{-- Image Label --}}
+                                <div class="absolute left-7 top-7 border border-white/20 bg-black/20 px-3 py-2 backdrop-blur-sm">
+                                    <span
+                                        x-text="image.label"
+                                        class="text-[9px] uppercase tracking-[0.18em] text-white/60"
+                                    ></span>
+                                </div>
+
+                                {{-- Image Caption --}}
+                                <div class="absolute bottom-0 left-0 right-0 p-7 lg:p-9">
+
+                                    <div class="mb-3 flex items-center gap-3">
+                                        <span class="h-px w-7 bg-[#c8b89a]"></span>
+
+                                        <span class="text-[9px] uppercase tracking-[0.18em] text-white/50">
+                                            Metro Mobilia Corporation
+                                        </span>
+                                    </div>
+
+                                    <p
+                                        x-text="image.caption"
+                                        class="max-w-lg font-serif text-lg font-light italic leading-[1.6] text-white/75"
+                                    ></p>
+
+                                </div>
+
+                            </div>
 
                         </template>
 
+
+                        {{-- Previous Button --}}
+                        <button
+                            type="button"
+                            @click="previous()"
+                            aria-label="Previous image"
+                            class="absolute left-5 top-1/2 z-20 -translate-y-1/2
+                                border border-white/20 bg-black/20 p-3
+                                text-white/70 backdrop-blur-sm
+                                transition hover:border-white/40 hover:bg-black/40 hover:text-white"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-4 w-4"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M15 19l-7-7 7-7"
+                                />
+                            </svg>
+                        </button>
+
+
+                        {{-- Next Button --}}
+                        <button
+                            type="button"
+                            @click="next()"
+                            aria-label="Next image"
+                            class="absolute right-5 top-1/2 z-20 -translate-y-1/2
+                                border border-white/20 bg-black/20 p-3
+                                text-white/70 backdrop-blur-sm
+                                transition hover:border-white/40 hover:bg-black/40 hover:text-white"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-4 w-4"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M9 5l7 7-7 7"
+                                />
+                            </svg>
+                        </button>
+
+
+                        {{-- Carousel Indicators --}}
+                        <div class="absolute bottom-7 right-7 z-20 flex items-center gap-2">
+
+                            <template x-for="(image, index) in images" :key="index">
+
+                                <button
+                                    type="button"
+                                    @click="active = index"
+                                    :aria-label="'Go to image ' + (index + 1)"
+                                    :class="active === index
+                                        ? 'w-8 bg-[#c8b89a]'
+                                        : 'w-2 bg-white/40 hover:bg-white/70'"
+                                    class="h-1.5 rounded-full transition-all duration-500"
+                                ></button>
+
+                            </template>
+
+                        </div>
+
                     </div>
-
-                </div>
-
 
 
                     {{-- OPERATIONS CONTENT --}}

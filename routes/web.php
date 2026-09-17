@@ -6,9 +6,8 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::view('/import', 'import')->name('import');
-
-Route::view('/export', 'export')->name('Export');
+Route::get('/import', [ProductController::class, 'import'])->name('import');
+Route::get('/export', [ProductController::class, 'export'])->name('export');
 
 // Fallback for any leftover route('contact') references —
 // redirects to the Import page's Contact section.
