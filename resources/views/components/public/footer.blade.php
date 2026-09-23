@@ -8,7 +8,7 @@
             </span>
 
             <span class="font-serif text-sm italic text-[#c8b89a]/30">
-                Quality Supply. Trusted Nationwide.
+                Quality Supply. Trusted Nationwide .
             </span>
 
         </div>
