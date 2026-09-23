@@ -12,7 +12,12 @@
     <title>
         {{ ucfirst($catalogType) }} Product Catalog — Metro Mobilia Corporation
     </title>
-
+    {{-- Favicon / Browser Tab Logo --}}
+    <link
+        rel="icon"
+        type="image/png"
+        href="{{ asset('images/logo_icon.png') }}"
+    >
     <meta
         name="description"
         content="{{ ucfirst($catalogType) }} product catalog of Metro Mobilia Corporation."
@@ -189,7 +194,10 @@
 
 
                             {{-- DETAILS --}}
-                            <div class="flex flex-1 flex-col p-8">
+                            <a
+                                href="{{ route('products.show', $product['code']) }}"
+                                class="group flex flex-1 flex-col p-8"
+                            >
 
                                 <div class="mb-3 flex items-center justify-between text-[9px] uppercase tracking-[0.18em] text-[#c8b89a]/60">
 
@@ -204,41 +212,34 @@
                                 </div>
 
 
-                                <h2 class="font-serif text-2xl font-light text-white transition duration-300 group-hover:text-[#c8b89a]">
-
+                                <h2
+                                    class="font-serif text-2xl font-light text-white transition duration-300 group-hover:text-[#c8b89a]"
+                                >
                                     {{ $product['name'] }}
-
                                 </h2>
 
 
                                 <p class="mt-4 max-w-sm text-xs font-light leading-[1.85] text-white/35">
-
                                     {{ $product['description'] }}
-
                                 </p>
 
 
                                 <div class="mt-auto flex items-center justify-between pt-8">
 
                                     <span class="text-[9px] uppercase tracking-[0.18em] text-white/20">
-
                                         {{ strtoupper($catalogType) }}
-
                                     </span>
 
 
-                                    <a
-                                        href="{{ route('products.show', $product['code']) }}"
-                                        class="text-[9px] uppercase tracking-[0.18em] text-[#c8b89a]/70 transition hover:text-[#c8b89a]"
+                                    <span
+                                        class="text-[9px] uppercase tracking-[0.18em] text-[#c8b89a]/70 transition duration-300 group-hover:text-[#c8b89a]"
                                     >
-
                                         View Details →
-
-                                    </a>
+                                    </span>
 
                                 </div>
 
-                            </div>
+                            </a>
 
 
                             {{-- Hover line --}}

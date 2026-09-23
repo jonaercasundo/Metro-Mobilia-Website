@@ -12,7 +12,7 @@
     );
 
     if (! in_array($currentType, ['export', 'import'], true)) {
-        $currentType = 'export';
+        $currentType = 'import';
     }
 @endphp
 
@@ -38,13 +38,13 @@
 
                 <p class="mt-7 max-w-2xl text-sm font-light leading-[1.9] text-white/40">
                     @if ($currentType === 'import')
-                        We source and supply imported furniture, home accessories,
-                        and specialty products from international sourcing partners
-                        to meet project and institutional requirements.
-                    @else
                         We source and supply educational, technology, furniture,
                         and institutional products for government programs,
                         schools, and organizations nationwide.
+                    @else
+                        We source and supply imported furniture, home accessories,
+                        and specialty products from international sourcing partners
+                        to meet project and institutional requirements.
                     @endif
                 </p>
 
@@ -90,8 +90,9 @@
 
             @forelse($divisionProducts as $index => $product)
 
-                <div
-                    class="group relative min-h-[300px] bg-[#1a1a1a] p-8 transition duration-300 hover:bg-[#222]"
+                <a
+                    href="{{ route('products.show', $product['code']) }}"
+                    class="group relative block min-h-[300px] bg-[#1a1a1a] p-8 transition duration-300 hover:bg-[#222]"
                 >
 
                     {{-- Top row --}}
@@ -115,7 +116,9 @@
                     {{-- Product information --}}
                     <div class="mt-12">
 
-                        <div class="mb-3 flex items-center justify-between text-[9px] uppercase tracking-[0.18em] text-[#c8b89a]/60">
+                        <div
+                            class="mb-3 flex items-center justify-between text-[9px] uppercase tracking-[0.18em] text-[#c8b89a]/60"
+                        >
                             <span>
                                 {{ ucfirst($currentType) }} Product
                             </span>
@@ -145,12 +148,11 @@
                             Metro Mobilia
                         </span>
 
-                        <a
-                            href="{{ route('products.show', $product['code']) }}"
-                            class="text-[9px] uppercase tracking-[0.18em] text-[#c8b89a]/70 transition hover:text-[#c8b89a]"
+                        <span
+                            class="text-[9px] uppercase tracking-[0.18em] text-[#c8b89a]/70 transition group-hover:text-[#c8b89a]"
                         >
                             View Details →
-                        </a>
+                        </span>
 
                     </div>
 
@@ -160,7 +162,7 @@
                         class="absolute bottom-0 left-0 h-[3px] w-full origin-left scale-x-0 bg-[#c8b89a] transition duration-500 group-hover:scale-x-100"
                     ></div>
 
-                </div>
+                </a>
 
             @empty
 
@@ -247,9 +249,9 @@
 
             <span>
                 @if ($currentType === 'import')
-                    Import · Sourcing · Home & Living
-                @else
                     Education · Technology · Procurement
+                @else
+                    Import · Sourcing · Home & Living
                 @endif
             </span>
 

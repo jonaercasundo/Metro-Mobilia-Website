@@ -11,17 +11,17 @@
                         Get In Touch
                     </div>
 
-                    <h1 class="font-serif text-4xl font-light leading-[1.1] text-[#0d0d0d] md:text-5xl lg:text-6xl">
-                        Let's Talk
-                        <br>
-                        <em class="text-[#a08060]">Procurement.</em>
-                    </h1>
+                        <h1 class="font-serif text-4xl font-light leading-[1.1] text-[#0d0d0d] md:text-5xl lg:text-6xl">
+                            Let's Build Your
+                            <br>
+                            <em class="text-[#a08060]">Next Collection.</em>
+                        </h1>
 
-                    <p class="mt-7 max-w-2xl text-sm font-light leading-[1.9] text-[#555]">
-                        Whether you are looking for educational supplies, technology,
-                        furniture, or specialized procurement solutions, our team is
-                        ready to discuss your requirements.
-                    </p>
+                        <p class="mt-7 max-w-2xl text-sm font-light leading-[1.9] text-[#555]">
+                            Get in touch with our design and production teams. Whether you are seeking factory-direct 
+                            orders, custom manufacturing, or wish to visit our showrooms in Shenzhen and Ho Chi Minh City, 
+                            we are here to bring your vision to life.
+                        </p>
 
                 </div>
 
@@ -70,9 +70,80 @@
                                         Muntinlupa City
                                     </address>
                                 </div>
-
                             </div>
+                            {{-- ADDRESS --}}
+                            <div class="flex gap-5 border-b border-black/10 py-6">
 
+                                <div class="flex h-10 w-10 shrink-0 items-center justify-center border border-black/10 bg-white">
+                                    <svg
+                                        class="h-4 w-4 text-[#a08060]"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="1.5"
+                                            d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z"
+                                        />
+                                        <circle
+                                            cx="12"
+                                            cy="10"
+                                            r="3"
+                                        />
+                                    </svg>
+                                </div>
+
+                                <div>
+                                    <div class="mb-2 text-[9px] uppercase tracking-[0.2em] text-black/40">
+                                        Vietnam Warehouse
+                                    </div>
+
+                                    <address class="not-italic text-sm leading-[1.8] text-[#0d0d0d]">
+                                        Thu Thiem Dragon Apartment - A.03.02,<br>
+                                        55 Quach Giai Street, Cat Lai Ward,<br>
+                                        Ho Chi Minh City 700000, Vietnam<br>
+                                    </address>
+                                </div>
+                            </div>
+                            {{-- ADDRESS --}}
+                            <div class="flex gap-5 border-b border-black/10 py-6">
+
+                                <div class="flex h-10 w-10 shrink-0 items-center justify-center border border-black/10 bg-white">
+                                    <svg
+                                        class="h-4 w-4 text-[#a08060]"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="1.5"
+                                            d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z"
+                                        />
+                                        <circle
+                                            cx="12"
+                                            cy="10"
+                                            r="3"
+                                        />
+                                    </svg>
+                                </div>
+
+                                <div>
+                                    <div class="mb-2 text-[9px] uppercase tracking-[0.2em] text-black/40">
+                                        China Warehouse
+                                    </div>
+
+                                    <address class="not-italic text-sm leading-[1.8] text-[#0d0d0d]">
+                                        Room 301, Building 10, talent<br>
+                                        Innovation Building, Jingtai Xicheng,<br>
+                                        Jinhu Talent Innovation Park,<br>
+                                        Shenzhen, Guandong 518172, China
+                                    </address>
+                                </div>
+                            </div>
 
                             {{-- PHONE --}}
                             <div class="flex gap-5 border-b border-black/10 py-6">
@@ -213,22 +284,6 @@
                                 </div>
 
                             </div>
-
-                        </div>
-
-
-                        {{-- CONTACT NOTE --}}
-                        <div class="mt-8 border-l-2 border-[#c8b89a] bg-white/50 px-5 py-4">
-
-                            <div class="text-[9px] uppercase tracking-[0.18em] text-black/40">
-                                Procurement Inquiries
-                            </div>
-
-                            <p class="mt-2 text-xs leading-[1.8] text-black/50">
-                                For government, institutional, or corporate requirements,
-                                please provide as much information as possible so our team
-                                can better understand your procurement needs.
-                            </p>
 
                         </div>
 
@@ -381,69 +436,6 @@
 
                             </div>
 
-
-                            {{-- PRODUCT --}}
-                            <div>
-
-                                <label
-                                    for="product_interest"
-                                    class="mb-2 block text-[9px] uppercase tracking-[0.18em] text-black/45"
-                                >
-                                    Product Interest
-                                </label>
-
-                                <select
-                                    id="product_interest"
-                                    name="product_interest"
-                                    class="w-full border border-black/10 bg-[#f5f3ee] px-4 py-3.5 text-sm text-[#0d0d0d] outline-none transition focus:border-[#a08060] focus:bg-white"
-                                >
-                                    <option value="">— Select a category —</option>
-
-                                    <option
-                                        value="School Furniture"
-                                        @selected(old('product_interest') === 'School Furniture')
-                                    >
-                                        School Furniture
-                                    </option>
-
-                                    <option
-                                        value="IT Equipment"
-                                        @selected(old('product_interest') === 'IT Equipment')
-                                    >
-                                        IT Equipment (Laptops & Tablets)
-                                    </option>
-
-                                    <option
-                                        value="Math & Science Kits"
-                                        @selected(old('product_interest') === 'Math & Science Kits')
-                                    >
-                                        Math & Science Kits
-                                    </option>
-
-                                    <option
-                                        value="Textbooks"
-                                        @selected(old('product_interest') === 'Textbooks')
-                                    >
-                                        Textbooks
-                                    </option>
-
-                                    <option
-                                        value="Manipulative Toys"
-                                        @selected(old('product_interest') === 'Manipulative Toys')
-                                    >
-                                        Manipulative Toys
-                                    </option>
-
-                                    <option
-                                        value="Other / Multiple Categories"
-                                        @selected(old('product_interest') === 'Other / Multiple Categories')
-                                    >
-                                        Other / Multiple Categories
-                                    </option>
-
-                                </select>
-
-                            </div>
 
 
                             {{-- MESSAGE --}}

@@ -1,11 +1,19 @@
 @php
-    $catalogType = strtolower($catalogType ?? 'import');
+    /*
+    |--------------------------------------------------------------------------
+    | Current Division
+    |--------------------------------------------------------------------------
+    */
 
-    if (! in_array($catalogType, ['import', 'export'], true)) {
-        $catalogType = 'import';
+    $currentType = strtolower(
+        $catalogType
+        ?? request()->query('type')
+        ?? (request()->routeIs('import') ? 'import' : 'export')
+    );
+
+    if (! in_array($currentType, ['import', 'export'], true)) {
+        $currentType = 'export';
     }
-
-    $divisionLabel = ucfirst($catalogType);
 @endphp
 
 <section id="products" class="bg-[#1a1a1a] px-6 py-20 text-white lg:px-12 lg:py-28">
@@ -36,15 +44,13 @@
 
             </div>
 
-            {{-- FULL CATALOG CTA --}}
+           {{-- FULL CATALOG CTA --}}
             <div class="shrink-0">
                 <a
-                    href="{{ route('products.catalog', ['type' => $catalogType]) }}"
+                    href="{{ route('products.catalog', ['type' => $currentType]) }}"
                     class="group inline-flex items-center gap-4 border border-[#c8b89a]/30 px-5 py-3 text-[10px] uppercase tracking-[0.18em] text-[#c8b89a] transition duration-300 hover:border-[#c8b89a] hover:bg-[#c8b89a] hover:text-[#0d0d0d]"
                 >
-                    <span>
-                        View Full {{ $divisionLabel }} Catalog
-                    </span>
+                    <span>View Full {{ ucfirst($currentType) }} Catalog</span>
 
                     <span class="transition-transform duration-300 group-hover:translate-x-1">
                         →
@@ -63,8 +69,9 @@
 
             @forelse($products as $index => $product)
 
-                <div
-                    class="group relative min-h-[300px] bg-[#1a1a1a] p-8 transition duration-300 hover:bg-[#222]"
+                <a
+                    href="{{ route('products.show', $product['code']) }}"
+                    class="group relative block min-h-[300px] bg-[#1a1a1a] p-8 transition duration-300 hover:bg-[#222]"
                 >
 
                     {{-- Top row --}}
@@ -88,10 +95,12 @@
                     {{-- Product information --}}
                     <div class="mt-12">
 
-                        <div class="mb-3 flex items-center justify-between text-[9px] uppercase tracking-[0.18em] text-[#c8b89a]/60">
+                        <div
+                            class="mb-3 flex items-center justify-between text-[9px] uppercase tracking-[0.18em] text-[#c8b89a]/60"
+                        >
 
                             <span>
-                                {{ $divisionLabel }} Product
+                                {{ ucfirst($currentType) }} Product
                             </span>
 
                             <span class="text-white/25">
@@ -120,12 +129,11 @@
                             Metro Mobilia
                         </span>
 
-                        <a
-                            href="{{ route('products.show', $product['code']) }}"
-                            class="text-[9px] uppercase tracking-[0.18em] text-[#c8b89a]/70 transition hover:text-[#c8b89a]"
+                        <span
+                            class="text-[9px] uppercase tracking-[0.18em] text-[#c8b89a]/70 transition duration-300 group-hover:text-[#c8b89a]"
                         >
                             View Details →
-                        </a>
+                        </span>
 
                     </div>
 
@@ -135,14 +143,14 @@
                         class="absolute bottom-0 left-0 h-[3px] w-full origin-left scale-x-0 bg-[#c8b89a] transition duration-500 group-hover:scale-x-100"
                     ></div>
 
-                </div>
+                </a>
 
             @empty
 
                 <div class="col-span-full bg-[#1a1a1a] px-8 py-16 text-center">
 
                     <p class="text-xs uppercase tracking-[0.18em] text-white/30">
-                        No {{ $catalogType }} products available.
+                        No {{ $currentType }} products available.
                     </p>
 
                 </div>

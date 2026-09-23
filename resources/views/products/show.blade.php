@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{{ $product['name'] }} — Metro Mobilia Corporation</title>
+        {{-- Favicon / Browser Tab Logo --}}
+    <link
+        rel="icon"
+        type="image/png"
+        href="{{ asset('images/logo_icon.png') }}"
+    >
     <meta name="description" content="{{ $product['description'] }}">
 
     {{-- Google Fonts --}}
@@ -20,9 +26,7 @@
 </head>
 
 <body class="flex min-h-screen flex-col overflow-x-hidden bg-[#f5f3ee] text-[#0d0d0d]">
-
-    {{-- Navigation --}}
-    <x-public.navbar />
+<x-public.navbar :catalog-type="$catalogType" />
 
     {{-- Main Content --}}
     <main class="relative flex-grow overflow-hidden bg-[#1a1a1a] px-6 py-12 text-white sm:py-16 md:py-20 lg:px-12 lg:py-24">
@@ -270,6 +274,85 @@
                 </div>
 
             </div>
+            @if(!empty($product['variants']))
+                <div class="relative mt-16 border-t border-white/10 pt-12 md:mt-20 md:pt-16">
+
+                    <div class="mb-8 flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-white/40 md:mb-10">
+                        <span class="h-px w-5 bg-[#c8b89a]"></span>
+                        <span>Specifications & Configurations</span>
+                    </div>
+
+                    <div class="grid gap-6 md:grid-cols-2">
+                        @foreach($product['variants'] as $variant)
+                            <div class="group relative overflow-hidden rounded-sm border border-white/10 bg-[#1f1f1f] transition-colors duration-300 hover:border-[#c8b89a]/30">
+
+                                <div class="flex flex-col sm:flex-row">
+
+                                    {{-- Variant image --}}
+                                    @if(!empty($variant['image']))
+                                        <div class="relative h-40 w-full flex-shrink-0 overflow-hidden bg-[#222] sm:h-auto sm:w-40">
+                                            <img
+                                                src="{{ asset('images/' . $variant['image']) }}"
+                                                alt="{{ $variant['name'] }}"
+                                                class="h-full w-full object-cover object-center opacity-90 transition-opacity duration-300 group-hover:opacity-100"
+                                                loading="lazy"
+                                                onerror="this.closest('.relative').classList.add('flex','items-center','justify-center'); this.remove();"
+                                            >
+                                        </div>
+                                    @endif
+
+                                    {{-- Variant details --}}
+                                    <div class="flex-1 p-5 sm:p-6">
+
+                                        {{-- Name badge --}}
+                                        <h3 class="mb-4 font-serif text-base font-light leading-snug text-white sm:text-lg">
+                                            {{ $variant['name'] }}
+                                        </h3>
+
+                                        {{-- Specification header --}}
+                                        <div class="mb-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#c8b89a]">
+                                            Specification
+                                        </div>
+
+                                        {{-- Function & Performance --}}
+                                        @if(!empty($variant['function_performance']))
+                                            <div class="mb-4">
+                                                <div class="mb-1.5 text-[9px] font-semibold uppercase tracking-[0.15em] text-white/40">
+                                                    Function &amp; Performance
+                                                </div>
+                                                <p class="text-xs font-light leading-relaxed text-white/60 sm:text-[13px]">
+                                                    {{ $variant['function_performance'] }}
+                                                </p>
+                                            </div>
+                                        @endif
+
+                                        {{-- Technical bullets --}}
+                                        @if(!empty($variant['technical']))
+                                            <div>
+                                                <div class="mb-1.5 text-[9px] font-semibold uppercase tracking-[0.15em] text-white/40">
+                                                    Technical
+                                                </div>
+                                                <ul class="space-y-1">
+                                                    @foreach($variant['technical'] as $line)
+                                                        <li class="flex gap-2 text-xs font-light leading-relaxed text-white/60 sm:text-[13px]">
+                                                            <span class="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-[#c8b89a]/60"></span>
+                                                            <span>{{ $line }}</span>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        @endforeach
+                    </div>
+
+                </div>
+            @endif
 
         </div>
 

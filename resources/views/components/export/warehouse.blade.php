@@ -11,59 +11,61 @@
                         Our Operations
                     </div>
 
-                    <h1 class="font-serif text-4xl font-light leading-[1.1] text-[#0d0d0d] md:text-5xl lg:text-6xl">
-                        Built for
-                        <br>
-                        <em class="text-[#a08060]">Nationwide</em> Delivery.
-                    </h1>
+                        <h1 class="font-serif text-4xl font-light leading-[1.1] text-[#0d0d0d] md:text-5xl lg:text-6xl">
+                            Discover
+                            <br>
+                            <em class="text-[#a08060]">Imported</em> Collections.
+                        </h1>
 
-                    <p class="mt-7 max-w-2xl text-sm font-light leading-[1.9] text-[#555]">
-                        Our procurement, warehouse, and logistics operations are structured
-                        to support large-scale government and institutional requirements,
-                        from sourcing and quality assurance through final delivery.
-                    </p>
-
+                        <p class="mt-7 max-w-2xl text-sm font-light leading-[1.9] text-[#555]">
+                            Experience our carefully curated selection of imported furniture, materials,
+                            and finishes in person. Our showroom offers an opportunity to explore each
+                            collection, appreciate its details, and find pieces that complement your space.
+                        </p>
                 </div>
 
 
                 {{-- MAIN CONTENT --}}
                 <div class="mt-14 grid items-stretch gap-3 lg:grid-cols-[1.15fr_0.85fr]">
 
-
-                    {{-- IMAGE CAROUSEL --}}
+                    {{-- SHOWROOM IMAGE CAROUSEL --}}
                     <div
                         x-data="{
                             active: 0,
                             images: [
                                 {
-                                    src: '{{ asset('images/warehouse.jpg') }}',
-                                    alt: 'Metro Mobilia warehouse operations',
-                                    label: 'Operations',
-                                    caption: 'Reliable logistics, organized inventory, and coordinated delivery supporting projects across the Philippines.'
+                                    src: '{{ asset('images/export_showroom_1.jpg') }}',
+                                    alt: 'Metro Mobilia showroom furniture collection',
+                                    label: 'Furniture Collection',
+                                    caption: 'Explore thoughtfully curated furniture collections designed to bring comfort, character, and timeless style to every space.'
                                 },
                                 {
-                                    src: '{{ asset('images/warehouse-2.jpg') }}',
-                                    alt: 'Metro Mobilia warehouse inventory',
-                                    label: 'Inventory',
-                                    caption: 'Organized inventory management ensuring products are prepared and available for every project.'
+                                    src: '{{ asset('images/export_showroom_2.jpg') }}',
+                                    alt: 'Metro Mobilia showroom materials and furniture',
+                                    label: 'Materials & Finishes',
+                                    caption: 'Discover distinctive materials, textures, and finishes carefully selected to complement a wide range of interior concepts.'
                                 },
                                 {
-                                    src: '{{ asset('images/warehouse-3.jpg') }}',
-                                    alt: 'Metro Mobilia logistics operations',
-                                    label: 'Logistics',
-                                    caption: 'Coordinated logistics and delivery operations connecting our facilities with projects nationwide.'
+                                    src: '{{ asset('images/export_showroom_3.jpg') }}',
+                                    alt: 'Metro Mobilia showroom interior display',
+                                    label: 'Showroom Experience',
+                                    caption: 'Experience our collections in an inspiring showroom environment where design, craftsmanship, and functionality come together.'
                                 }
                             ],
                             autoplay: null,
 
                             startAutoplay() {
+                                this.stopAutoplay()
                                 this.autoplay = setInterval(() => {
                                     this.next()
                                 }, 5000)
                             },
 
                             stopAutoplay() {
-                                clearInterval(this.autoplay)
+                                if (this.autoplay) {
+                                    clearInterval(this.autoplay)
+                                    this.autoplay = null
+                                }
                             },
 
                             next() {
@@ -79,7 +81,8 @@
                         @mouseenter="stopAutoplay()"
                         @mouseleave="startAutoplay()"
                         class="group relative min-h-[460px] overflow-hidden bg-[#222]"
-                     >
+                    >
+
                         {{-- Images --}}
                         <template x-for="(image, index) in images" :key="index">
 
@@ -118,7 +121,7 @@
                                         <span class="h-px w-7 bg-[#c8b89a]"></span>
 
                                         <span class="text-[9px] uppercase tracking-[0.18em] text-white/50">
-                                            Metro Mobilia Corporation
+                                            Metro Mobilia Showroom
                                         </span>
                                     </div>
 
@@ -195,7 +198,7 @@
 
                                 <button
                                     type="button"
-                                    @click="active = index"
+                                    @click="active = index; startAutoplay()"
                                     :aria-label="'Go to image ' + (index + 1)"
                                     :class="active === index
                                         ? 'w-8 bg-[#c8b89a]'
@@ -209,31 +212,29 @@
 
                     </div>
 
-
-                    {{-- OPERATIONS CONTENT --}}
+                    {{-- SHOWROOM CONTENT --}}
                     <div class="flex flex-col border border-black/10 bg-white">
 
                         <div class="p-7 sm:p-9">
 
                             <div class="text-[9px] uppercase tracking-[0.2em] text-black/35">
-                                Operational Capability
+                                Showroom Experience
                             </div>
 
                             <h2 class="mt-3 font-serif text-2xl font-light text-[#0d0d0d]">
-                                From sourcing to delivery.
+                                Discover the collection in person.
                             </h2>
 
                             <p class="mt-5 text-sm font-light leading-[1.85] text-[#555]">
-                                We coordinate directly with manufacturers, logistics
-                                partners, testing laboratories, and client agencies to
-                                help ensure that every project moves according to
-                                specification and schedule.
+                                Explore our curated selection of furniture, materials, and finishes
+                                through a showroom experience designed to help clients visualize
+                                products and select solutions suited to their spaces and projects.
                             </p>
 
                         </div>
 
 
-                        {{-- CAPABILITIES --}}
+                        {{-- SHOWROOM FEATURES --}}
                         <div class="border-t border-black/10">
 
                             <div class="group border-b border-black/10 p-6 transition hover:bg-[#f5f3ee]">
@@ -246,12 +247,13 @@
 
                                     <div>
                                         <h3 class="text-sm font-medium text-[#0d0d0d]">
-                                            Procurement & Sourcing
+                                            Furniture Collections
                                         </h3>
 
                                         <p class="mt-1 text-[11px] leading-[1.7] text-black/40">
-                                            Coordinated sourcing through manufacturers and
-                                            supply partners according to project requirements.
+                                            Explore thoughtfully selected furniture collections
+                                            created for residential, hospitality, commercial, and
+                                            institutional environments.
                                         </p>
                                     </div>
 
@@ -270,12 +272,13 @@
 
                                     <div>
                                         <h3 class="text-sm font-medium text-[#0d0d0d]">
-                                            Quality Assurance
+                                            Materials & Finishes
                                         </h3>
 
                                         <p class="mt-1 text-[11px] leading-[1.7] text-black/40">
-                                            Quality-control processes supporting product
-                                            specifications and project requirements.
+                                            View a variety of materials, textures, colors, and
+                                            finishes to help define the look and feel of your
+                                            furniture and interior spaces.
                                         </p>
                                     </div>
 
@@ -294,12 +297,13 @@
 
                                     <div>
                                         <h3 class="text-sm font-medium text-[#0d0d0d]">
-                                            Inventory Coordination
+                                            Product Selection
                                         </h3>
 
                                         <p class="mt-1 text-[11px] leading-[1.7] text-black/40">
-                                            Organized handling and coordination of products
-                                            before project deployment and delivery.
+                                            Compare designs, dimensions, materials, and finishes
+                                            to identify furniture solutions that align with your
+                                            project requirements.
                                         </p>
                                     </div>
 
@@ -318,12 +322,13 @@
 
                                     <div>
                                         <h3 class="text-sm font-medium text-[#0d0d0d]">
-                                            Nationwide Delivery
+                                            Project Consultation
                                         </h3>
 
                                         <p class="mt-1 text-[11px] leading-[1.7] text-black/40">
-                                            Coordinated logistics supporting deliveries for
-                                            government and institutional projects nationwide.
+                                            Our team can assist with product selection and
+                                            specifications for residential, commercial, and
+                                            institutional projects.
                                         </p>
                                     </div>
 

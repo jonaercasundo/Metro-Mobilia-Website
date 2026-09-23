@@ -1,3 +1,5 @@
+@props(['catalogType' => null])
+
 @php
     /*
     |--------------------------------------------------------------------------
@@ -7,16 +9,6 @@
 
     $isImportPage = request()->routeIs('import');
     $isExportPage = request()->routeIs('export');
-
-    /*
-    |--------------------------------------------------------------------------
-    | Product Catalog Context
-    |--------------------------------------------------------------------------
-    |
-    | Product catalog/show pages use ?type=import or ?type=export.
-    | Preserve that context when navigating through the navbar.
-    |
-    */
 
     $isProductCatalog = request()->routeIs('products.catalog');
     $isProductShow = request()->routeIs('products.show');
@@ -72,7 +64,7 @@
                 >
             </a>
 
-            {{-- Import / export Badge --}}
+            {{-- Import / Export Badge --}}
             @if ($onDivisionPage)
                 <div
                     class="hidden items-center gap-1.5 rounded-full
@@ -110,50 +102,61 @@
                 Home
             </a>
 
-            {{-- About --}}
-            <a
-                href="{{ route($divisionRoute) }}#about"
-                class="text-[10px] uppercase tracking-[0.15em]
-                       text-white/60 transition hover:text-white"
-            >
-                About
-            </a>
+            {{-- Only show section navigation on Import/Export pages --}}
+            @if ($onDivisionPage)
 
-            {{-- Products --}}
-            <a
-                href="{{ route($divisionRoute) }}#products"
-                class="text-[10px] uppercase tracking-[0.15em]
-                       text-white/60 transition hover:text-white"
-            >
-                Products
-            </a>
+                {{-- About --}}
+                <a
+                    href="{{ route($divisionRoute) }}#about"
+                    class="text-[10px] uppercase tracking-[0.15em]
+                           text-white/60 transition hover:text-white"
+                >
+                    About
+                </a>
 
-            {{-- Credentials --}}
-            <a
-                href="{{ route($divisionRoute) }}#credentials"
-                class="text-[10px] uppercase tracking-[0.15em]
-                       text-white/60 transition hover:text-white"
-            >
-                Credentials
-            </a>
+                {{-- Products --}}
+                <a
+                    href="{{ route($divisionRoute) }}#products"
+                    class="text-[10px] uppercase tracking-[0.15em]
+                           text-white/60 transition hover:text-white"
+                >
+                    Products
+                </a>
 
-            {{-- Clients --}}
-            <a
-                href="{{ route($divisionRoute) }}#clients"
-                class="text-[10px] uppercase tracking-[0.15em]
-                       text-white/60 transition hover:text-white"
-            >
-                Clients
-            </a>
+                {{-- Credentials
+                     IMPORT ONLY --}}
+                @if ($divisionRoute === 'import')
+                    <a
+                        href="{{ route($divisionRoute) }}#credentials"
+                        class="text-[10px] uppercase tracking-[0.15em]
+                               text-white/60 transition hover:text-white"
+                    >
+                        Credentials
+                    </a>
+                @endif
 
-            {{-- Contact --}}
-            <a
-                href="{{ route($divisionRoute) }}#contact"
-                class="text-[10px] uppercase tracking-[0.15em]
-                       text-white/60 transition hover:text-white"
-            >
-                Contact
-            </a>
+                {{-- Clients
+                     IMPORT ONLY --}}
+                @if ($divisionRoute === 'import')
+                    <a
+                        href="{{ route($divisionRoute) }}#clients"
+                        class="text-[10px] uppercase tracking-[0.15em]
+                               text-white/60 transition hover:text-white"
+                    >
+                        Clients
+                    </a>
+                @endif
+
+                {{-- Contact --}}
+                <a
+                    href="{{ route($divisionRoute) }}#contact"
+                    class="text-[10px] uppercase tracking-[0.15em]
+                           text-white/60 transition hover:text-white"
+                >
+                    Contact
+                </a>
+
+            @endif
 
         </div>
 
@@ -165,6 +168,7 @@
         <div class="hidden items-center gap-4 lg:flex">
 
             @if ($divisionRoute === 'import')
+
                 <a
                     href="{{ route('export') }}"
                     class="border border-white/30 px-5 py-2.5
@@ -172,9 +176,11 @@
                            text-white transition
                            hover:bg-white hover:text-[#0d0d0d]"
                 >
-                    export
+                    Export
                 </a>
+
             @else
+
                 <a
                     href="{{ route('import') }}"
                     class="border border-white/30 px-5 py-2.5
@@ -184,6 +190,7 @@
                 >
                     Import
                 </a>
+
             @endif
 
             <a
@@ -209,6 +216,7 @@
             class="text-white lg:hidden"
             aria-label="Toggle navigation"
         >
+
             {{-- Menu Icon --}}
             <svg
                 x-show="!open"
@@ -241,6 +249,7 @@
                     d="M6 18L18 6M6 6l12 12"
                 />
             </svg>
+
         </button>
 
     </div>
@@ -260,27 +269,6 @@
 
         <div class="space-y-1 px-6 py-5">
 
-            {{-- Import / export Badge --}}
-            @if ($onDivisionPage)
-                <div
-                    class="mb-2 flex w-fit items-center gap-1.5
-                           rounded-full border border-[#c8b89a]/30
-                           bg-[#c8b89a]/10 px-3 py-1"
-                >
-                    <span
-                        class="h-1.5 w-1.5 rounded-full bg-[#c8b89a]"
-                    ></span>
-
-                    <span
-                        class="text-[9px] font-medium uppercase
-                               tracking-[0.2em] text-[#c8b89a]"
-                    >
-                        {{ ucfirst($divisionRoute) }}
-                    </span>
-                </div>
-            @endif
-
-
             {{-- Home --}}
             <a
                 href="{{ route('home') }}"
@@ -293,68 +281,83 @@
             </a>
 
 
-            {{-- About --}}
-            <a
-                href="{{ route($divisionRoute) }}#about"
-                @click="open = false"
-                class="block py-3 text-xs uppercase
-                       tracking-[0.15em] text-white/60
-                       transition hover:text-white"
-            >
-                About
-            </a>
+            {{-- Only show section navigation on division pages --}}
+            @if ($onDivisionPage)
+
+                {{-- About --}}
+                <a
+                    href="{{ route($divisionRoute) }}#about"
+                    @click="open = false"
+                    class="block py-3 text-xs uppercase
+                           tracking-[0.15em] text-white/60
+                           transition hover:text-white"
+                >
+                    About
+                </a>
 
 
-            {{-- Products --}}
-            <a
-                href="{{ route($divisionRoute) }}#products"
-                @click="open = false"
-                class="block py-3 text-xs uppercase
-                       tracking-[0.15em] text-white/60
-                       transition hover:text-white"
-            >
-                Products
-            </a>
+                {{-- Products --}}
+                <a
+                    href="{{ route($divisionRoute) }}#products"
+                    @click="open = false"
+                    class="block py-3 text-xs uppercase
+                           tracking-[0.15em] text-white/60
+                           transition hover:text-white"
+                >
+                    Products
+                </a>
 
 
-            {{-- Credentials --}}
-            <a
-                href="{{ route($divisionRoute) }}#credentials"
-                @click="open = false"
-                class="block py-3 text-xs uppercase
-                       tracking-[0.15em] text-white/60
-                       transition hover:text-white"
-            >
-                Credentials
-            </a>
+                {{-- Credentials
+                     IMPORT ONLY --}}
+                @if ($divisionRoute === 'import')
+                    <a
+                        href="{{ route($divisionRoute) }}#credentials"
+                        @click="open = false"
+                        class="block py-3 text-xs uppercase
+                               tracking-[0.15em] text-white/60
+                               transition hover:text-white"
+                    >
+                        Credentials
+                    </a>
+                @endif
 
 
-            {{-- Clients --}}
-            <a
-                href="{{ route($divisionRoute) }}#clients"
-                @click="open = false"
-                class="block py-3 text-xs uppercase
-                       tracking-[0.15em] text-white/60
-                       transition hover:text-white"
-            >
-                Clients
-            </a>
+                {{-- Clients
+                     IMPORT ONLY --}}
+                @if ($divisionRoute === 'import')
+                    <a
+                        href="{{ route($divisionRoute) }}#clients"
+                        @click="open = false"
+                        class="block py-3 text-xs uppercase
+                               tracking-[0.15em] text-white/60
+                               transition hover:text-white"
+                    >
+                        Clients
+                    </a>
+                @endif
 
 
-            {{-- Contact --}}
-            <a
-                href="{{ route($divisionRoute) }}#contact"
-                @click="open = false"
-                class="block py-3 text-xs uppercase
-                       tracking-[0.15em] text-white/60
-                       transition hover:text-white"
-            >
-                Contact
-            </a>
+                {{-- Contact --}}
+                <a
+                    href="{{ route($divisionRoute) }}#contact"
+                    @click="open = false"
+                    class="block py-3 text-xs uppercase
+                           tracking-[0.15em] text-white/60
+                           transition hover:text-white"
+                >
+                    Contact
+                </a>
+
+            @endif
 
 
-            {{-- Division Switch --}}
+            {{-- ========================================================
+                Division Switch
+            ========================================================= --}}
+
             @if ($divisionRoute === 'import')
+
                 <a
                     href="{{ route('export') }}"
                     @click="open = false"
@@ -363,9 +366,11 @@
                            tracking-[0.15em] text-white transition
                            hover:bg-white hover:text-[#0d0d0d]"
                 >
-                    export
+                    Export
                 </a>
+
             @else
+
                 <a
                     href="{{ route('import') }}"
                     @click="open = false"
@@ -376,9 +381,14 @@
                 >
                     Import
                 </a>
+
             @endif
 
-            {{-- CTA --}}
+
+            {{-- ========================================================
+                CTA
+            ========================================================= --}}
+
             <a
                 href="{{ route($divisionRoute) }}#contact"
                 @click="open = false"
@@ -391,5 +401,7 @@
             </a>
 
         </div>
+
     </div>
+
 </nav>

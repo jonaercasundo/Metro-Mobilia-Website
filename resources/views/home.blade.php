@@ -17,7 +17,12 @@
         name="description"
         content="Metro Mobilia Corporation - Quality Supply. Trusted Nationwide."
     >
-
+    {{-- Favicon / Browser Tab Logo --}}
+    <link
+        rel="icon"
+        type="image/png"
+        href="{{ asset('images/logo_icon.png') }}"
+    >
     {{-- Google Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
 

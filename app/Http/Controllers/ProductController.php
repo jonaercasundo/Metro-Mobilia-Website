@@ -22,130 +22,104 @@ class ProductController extends Controller
         return [
             /*
             |--------------------------------------------------------------------------
-            | EXPORT PRODUCTS
+            | IMPORT PRODUCTS
             |--------------------------------------------------------------------------
             */
 
             [
                 'code' => 'MM-SF-01',
                 'number' => '01',
-                'name' => 'School Furniture',
-                'type' => 'export',
+                'name' => 'Science And Mathematics Equipments',
+                'type' => 'import',
                 'description' => 'Durable classroom furniture designed for schools, government programs, and educational institutions.',
                 'long_description' => 'Our school furniture line includes chairs, desks, cabinets, and storage solutions built to withstand daily classroom use. Sourced to meet DepEd and government procurement specifications, with options for ergonomic design and bulk institutional orders.',
                 'icon' => '▣',
-                'category' => 'Furniture',
-                'image' => 'products/school-furniture.jpg',
+                'category' => 'SME',
+                'image' => 'products/science_kit_cover_photo.png',
 
                 'brands' => [
                     [
-                        'name' => 'Steelcraft',
-                        'logo' => 'brands/steelcraft.png',
-                        'image' => 'brands/steelcraft.png',
+                        'name' => 'STORAGE CABINETS',
+                        'logo' => 'brands/storage cabinet.png',
+                        'image' => 'brands/storage cabinet.png',
                     ],
                     [
-                        'name' => 'EduDesk',
-                        'logo' => 'brands/edudesk.png',
-                        'image' => 'brands/edudesk.png',
+                        'name' => 'Basic Science kit',
+                        'logo' => 'brands/scikit_flatlay_portrait.png',
+                        'image' => 'brands/scikit_flatlay_portrait.png',
                     ],
                     [
-                        'name' => 'Formline',
-                        'logo' => 'brands/formline.jpg',
-                        'image' => 'brands/formline.png',
+                        'name' => 'Science And Mathematics Equipments',
+                        'logo' => 'brands/sme.png',
+                        'image' => 'brands/sme.png',
+                    ],
+                    [
+                        'name' => 'SCIENCE DEVICES, INSTRUMENTS AND MEASURING TOOLS - Matter',
+                        'logo' => 'brands/SCIENCE DEVICES INSTRUMENTS AND MEASURING TOOLS .png',
+                        'image' => 'brands/SCIENCE DEVICES INSTRUMENTS AND MEASURING TOOLS .png',
+                    ],
+                    [
+                        'name' => 'SCIENCE DEVICES, INSTRUMENTS AND MEASURING TOOLS - EARTH AND SPACE, AND LIVING THINGS',
+                        'logo' => 'brands/sme2.png',
+                        'image' => 'brands/sme2.png',
+                    ],
+                    [
+                        'name' => 'Mathematical Manipulatives',
+                        'logo' => 'brands/Mathematical Manipulatives.png',
+                        'image' => 'brands/Mathematical Manipulatives.png',
+                    ],
+                    [
+                        'name' => 'Mathematical Tools and Instrument',
+                        'logo' => 'brands/Mathematical Tools and Instrument.png',
+                        'image' => 'brands/Mathematical Tools and Instrument.png',
+                    ],
+                    [
+                        'name' => 'Models: Earth and other Heavenly Bodies',
+                        'logo' => 'brands/Earth and other Heavenly Bodies.png',
+                        'image' => 'brands/Earth and other Heavenly Bodies.png',
+                    ],
+                    [
+                        'name' => 'Models: The Human Anatomy',
+                        'logo' => 'brands/The Human Anatomy.png',
+                        'image' => 'brands/The Human Anatomy.png',
+                    ],
+                    [
+                        'name' => 'Models: Other Biological Structures and Species',
+                        'logo' => 'brands/Other Biological Structures and Species.png',
+                        'image' => 'brands/Other Biological Structures and Species.png',
+                    ],
+                    [
+                        'name' => 'Models: Molecular Geometry',
+                        'logo' => 'brands/Molecular Geometry.png',
+                        'image' => 'brands/Molecular Geometry.png',
+                    ],
+                    [
+                        'name' => 'Force, Motion, and energy kits',
+                        'logo' => 'brands/Force Motion and energy kits.png',
+                        'image' => 'brands/Force Motion and energy kits.png',
                     ],
                 ],
-            ],
-
-            [
-                'code' => 'MM-IT-02',
-                'number' => '02',
-                'name' => 'IT Equipment',
-                'type' => 'export',
-                'description' => 'Laptops, tablets, computers, and technology equipment for education and government requirements.',
-                'long_description' => 'We supply laptops, desktops, tablets, projectors, and networking equipment configured for classroom and office deployment, including bulk imaging, warranty support, and compliance documentation for government bids.',
-                'icon' => '⌘',
-                'category' => 'Technology',
-                'image' => 'products/it-equipment.jpg',
-
-                'brands' => [
-                    [
-                        'name' => 'Lenovo',
-                        'logo' => 'brands/lenovo.jpg',
-                        'image' => 'brands/lenovo.jpg',
-                    ],
-                    [
-                        'name' => 'HP',
-                        'logo' => 'brands/hp.jpg',
-                        'image' => 'brands/hp.jpg',
-                    ],
-                    [
-                        'name' => 'Acer',
-                        'logo' => 'brands/acer.jpg',
-                        'image' => 'brands/acer.jpg',
-                    ],
-                    [
-                        'name' => 'Epson',
-                        'logo' => 'brands/epson.jpg',
-                        'image' => 'brands/epson.jpg',
-                    ],
-                ],
-            ],
-
-            [
-                'code' => 'MM-MS-03',
-                'number' => '03',
-                'name' => 'Math & Science Kits',
-                'type' => 'export',
-                'description' => 'Educational laboratory equipment, science kits, and learning materials for modern classrooms.',
-                'long_description' => 'Hands-on science and math learning kits including lab apparatus, measurement tools, and experiment sets designed to align with curriculum standards for elementary and secondary education.',
-                'icon' => '◇',
-                'category' => 'Learning Materials',
-                'image' => 'products/science-kits.jpg',
-
-                'brands' => [
-                    [
-                        'name' => 'LabWorks',
-                        'logo' => 'brands/labworks.png',
-                        'image' => 'products/science-kits-labworks.jpg',
-                    ],
-                    [
-                        'name' => 'ScienceCo',
-                        'logo' => 'brands/scienceco.png',
-                        'image' => 'products/science-kits-scienceco.jpg',
-                    ],
-                ],
+                
             ],
 
             [
                 'code' => 'MM-TB-04',
                 'number' => '04',
                 'name' => 'Textbooks',
-                'type' => 'export',
+                'type' => 'import',
                 'description' => 'Educational books and learning resources supporting curriculum and institutional requirements.',
                 'long_description' => 'Curriculum-aligned textbooks and supplementary learning resources sourced from approved publishers, supporting institutional and government education programs at scale.',
                 'icon' => '▤',
                 'category' => 'Learning Materials',
-                'image' => 'products/textbooks.jpg',
+                'image' => 'products/Textbook_Cover.png',
 
-                'brands' => [
-                    [
-                        'name' => 'Rex Book Store',
-                        'logo' => 'brands/rex.png',
-                        'image' => 'products/textbooks-rex.jpg',
-                    ],
-                    [
-                        'name' => 'Vibal',
-                        'logo' => 'brands/vibal.png',
-                        'image' => 'products/textbooks-vibal.jpg',
-                    ],
-                ],
             ],
 
             [
                 'code' => 'MM-MT-05',
                 'number' => '05',
                 'name' => 'Manipulative Toys',
-                'type' => 'export',
+                'type' => 'import',
                 'description' => 'Hands-on educational materials designed to support early learning and classroom development.',
                 'long_description' => 'Early-learning manipulatives and developmental toys designed to support motor skills, cognitive development, and classroom engagement for pre-school and early elementary programs.',
                 'icon' => '○',
@@ -196,9 +170,43 @@ class ProductController extends Controller
                 ],
             ],
 
+            [
+                'code' => 'MM-FUR-04',
+                'number' => '04',
+                'name' => 'Furniture',
+                'type' => 'import',
+                'description' => 'Hands-on educational materials designed to support early learning and classroom development.',
+                'long_description' => 'Early-learning manipulatives and developmental toys designed to support motor skills, cognitive development, and classroom engagement for pre-school and early elementary programs.',
+                'icon' => 'F',
+                'category' => 'Learners Table and Chair Set',
+                'image' => 'brands/furniture_1.jpg',
+
+                'brands' => [
+                    [
+                        'name' => 'Learners Table and Chair Set (Wood) (1)',
+                        'logo' => 'brands/furniture_1.jpg',
+                        'image' => 'brands/furniture_1.jpg',
+                    ],
+                    [
+                        'name' => 'Learners Table and Chair Set (Wood) (2)',
+                        'logo' => 'brands/furniture_2.png',
+                        'image' => 'brands/furniture_2.png',
+                    ],
+                    [
+                        'name' => 'Learners Table and Chair Set (Wood) (3)',
+                        'logo' => 'brands/furniture_3.jpg',
+                        'image' => 'brands/furniture_3.jpg',
+                    ],
+                    [
+                        'name' => 'Learners Table and Chair Set (Wood) (4)',
+                        'logo' => 'brands/furniture_4.jpg',
+                        'image' => 'brands/furniture_4.jpg',
+                    ],
+                ],
+            ],
             /*
             |--------------------------------------------------------------------------
-            | IMPORT PRODUCTS
+            | EXPORT PRODUCTS
             |--------------------------------------------------------------------------
             */
 
@@ -206,7 +214,7 @@ class ProductController extends Controller
                 'code' => 'MI-FUR-01',
                 'number' => '01',
                 'name' => 'Furniture',
-                'type' => 'import',
+                'type' => 'export',
                 'description' => 'Durable furniture designed for residential and commercial use, including bedroom, living room, and office furniture.',
                 'long_description' => 'We design and manufacture a full range of furniture — from beds and sofas to desks and chairs — supplied factory-direct from our showrooms in Shenzhen and Ho Chi Minh City.',
                 'icon' => '🪑',
@@ -246,7 +254,7 @@ class ProductController extends Controller
                 'code' => 'MI-BAS-02',
                 'number' => '02',
                 'name' => 'Basket & Storage',
-                'type' => 'import',
+                'type' => 'export',
                 'description' => 'Durable baskets and storage solutions designed for residential and commercial use.',
                 'long_description' => 'We design and manufacture a full range of baskets and storage solutions — from woven baskets and storage bins to shelving units and organizers — supplied factory-direct from our showrooms in Shenzhen and Ho Chi Minh City.',
                 'icon' => '🧺',
@@ -281,7 +289,7 @@ class ProductController extends Controller
                 'code' => 'MI-CH-03',
                 'number' => '03',
                 'name' => 'Kitchen & Dining Furniture',
-                'type' => 'import',
+                'type' => 'export',
                 'description' => 'Durable kitchen and dining furniture designed for residential and commercial use.',
                 'long_description' => 'We design and manufacture a full range of kitchen and dining furniture — from countertops and cabinets to dining tables and chairs — supplied factory-direct from our showrooms in Shenzhen and Ho Chi Minh City.',
                 'icon' => '🍽️',
@@ -316,7 +324,7 @@ class ProductController extends Controller
                 'code' => 'MI-DEC-04',
                 'number' => '04',
                 'name' => 'Decorative Accessories',
-                'type' => 'import',
+                'type' => 'export',
                 'description' => 'Durable decorative accessories designed for residential and commercial use.',
                 'long_description' => 'We design and manufacture a full range of decorative accessories — from vases and sculptures to lighting and textiles — supplied factory-direct from our showrooms in Shenzhen and Ho Chi Minh City.',
                 'icon' => '🖼️',
@@ -361,7 +369,7 @@ class ProductController extends Controller
                 'code' => 'MI-OFF-05',
                 'number' => '05',
                 'name' => 'Lantern',
-                'type' => 'import',
+                'type' => 'export',
                 'description' => 'Durable lanterns designed for residential and commercial use.',
                 'long_description' => 'We design and manufacture a full range of lanterns — from table lanterns and hanging lanterns to outdoor lanterns and decorative lighting — supplied factory-direct from our showrooms in Shenzhen and Ho Chi Minh City.',
                 'icon' => '🏮',
