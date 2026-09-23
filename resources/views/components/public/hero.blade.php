@@ -47,11 +47,11 @@
 
 
         <h1
-            class="font-serif text-4xl font-light text-white lg:text-8xl"
+            class="font-serif text-4xl font-light text-white md:text-6xl"
         >
-            Two Sides of Excellence.
+            Two Sides of Excellence.  
             <br>
-            <em class="text-[#c8b89a]">One Commitment to Quality.</em>
+            One Commitment to<em class="text-[#c8b89a]"> Quality.</em>
         </h1>
     </div>
 
