@@ -44,7 +44,7 @@
                                     src: '{{ asset('images/warehouse_02.jpg') }}',
                                     alt: 'Metro Mobilia Quality Assurance',
                                     label: 'Quality Assurance',
-                                    caption: 'Organized inventory management ensuring products are prepared and available for every project.'
+                                    caption: 'Organized inventory  management ensuring products are prepared and available for every project.'
                                 },
                                 {
                                     src: '{{ asset('images/warehouse_03.jpg') }}',
