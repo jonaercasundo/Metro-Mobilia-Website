@@ -49,9 +49,9 @@
         <h1
             class="font-serif text-4xl font-light text-white lg:text-8xl"
         >
-            Quality Supply.
+            Two Sides of Excellence.
             <br>
-            <em class="text-[#c8b89a]">Trusted Nationwide.</em>
+            <em class="text-[#c8b89a]">One Commitment to Quality.</em>
         </h1>
     </div>
 
