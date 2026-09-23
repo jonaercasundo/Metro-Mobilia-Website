@@ -1,0 +1,71 @@
+services:
+
+
+  metro_mobilia_website:
+
+    build:
+
+      context: .
+
+      dockerfile: Dockerfile
+
+
+    container_name: metro_mobilia_website
+
+
+    restart: unless-stopped
+
+
+    environment:
+
+      APP_NAME: "Metro Mobilia"
+
+      APP_ENV: production
+
+      APP_DEBUG: "false"
+
+      APP_URL: "https://www.metro-mobilia.com"
+
+
+      APP_KEY: "${APP_KEY}"
+
+
+      DB_CONNECTION: sqlite
+
+      DB_DATABASE: "/var/lib/metro-mobilia/database.sqlite"
+
+
+      LOG_CHANNEL: stderr
+
+      LOG_LEVEL: info
+
+
+    volumes:
+
+      - metro_mobilia_storage:/var/www/html/storage
+
+      - metro_mobilia_database:/var/lib/metro-mobilia
+
+
+    networks:
+
+      - nginx-proxy-manager_default
+
+
+
+networks:
+
+
+  nginx-proxy-manager_default:
+
+    external: true
+
+
+
+volumes:
+
+
+  metro_mobilia_storage:
+
+
+  metro_mobilia_database:
