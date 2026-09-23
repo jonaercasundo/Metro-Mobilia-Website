@@ -145,54 +145,6 @@
                                 </div>
                             </div>
 
-                            {{-- PHONE --}}
-                            <div class="flex gap-5 border-b border-black/10 py-6">
-
-                                <div class="flex h-10 w-10 shrink-0 items-center justify-center border border-black/10 bg-white">
-                                    <svg
-                                        class="h-4 w-4 text-[#a08060]"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="1.5"
-                                            d="M22 16.92v3a2 2 0 01-2.18 2
-                                            19.79 19.79 0 01-8.63-3.07
-                                            A19.5 19.5 0 013.07 9.81
-                                            19.79 19.79 0 01.0.14
-                                            2 2 0 012 1h3a2 2 0 012 1.72
-                                            c.127.96.361 1.903.7 2.81
-                                            a2 2 0 01-.45 2.11L6.09 8.91
-                                            a16 16 0 006 6l1.27-1.27
-                                            a2 2 0 012.11-.45
-                                            c.907.339 1.85.573 2.81.7
-                                            A2 2 0 0122 16.92z"
-                                        />
-                                    </svg>
-                                </div>
-
-                                <div>
-                                    <div class="mb-2 text-[9px] uppercase tracking-[0.2em] text-black/40">
-                                        Phone
-                                    </div>
-
-                                    <a
-                                        href="tel:+63288217261"
-                                        class="text-sm text-[#0d0d0d] transition hover:text-[#a08060]"
-                                    >
-                                        +632 8821 7261
-                                    </a>
-
-                                    <div class="mt-1 text-[11px] text-black/35">
-                                        Office Line
-                                    </div>
-                                </div>
-
-                            </div>
-
 
                             {{-- EMAIL --}}
                             <div class="flex gap-5 border-b border-black/10 py-6">
@@ -222,10 +174,24 @@
                                     </div>
 
                                     <a
-                                        href="mailto:info@metro-mobilia.com"
+                                        href="mailto:maizen@metroinc.com.ph"
                                         class="text-sm text-[#0d0d0d] transition hover:text-[#a08060]"
                                     >
-                                        info@metro-mobilia.com
+                                        maizen@metroinc.com.ph
+                                    </a><br>
+
+                                    <a
+                                        href="mailto:abballais@metroinc.com.ph"
+                                        class="text-sm text-[#0d0d0d] transition hover:text-[#a08060]"
+                                    >
+                                        abballais@metroinc.com.ph
+                                    </a><br>
+                                    
+                                    <a
+                                        href="mailto:marco@metroinc.com.ph"
+                                        class="text-sm text-[#0d0d0d] transition hover:text-[#a08060]"
+                                    >
+                                        marco@metroinc.com.ph
                                     </a>
 
                                     <div class="mt-1 text-[11px] text-black/35">

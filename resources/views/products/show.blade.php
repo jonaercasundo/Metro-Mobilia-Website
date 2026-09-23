@@ -259,18 +259,6 @@
                         </div>
                     </div>
 
-                    {{-- Sourcing Banner --}}
-                    <div class="mt-12 rounded-sm border border-white/10 bg-gradient-to-br from-[#222] to-[#1c1c1c] p-6 shadow-inner transition-colors duration-300 hover:border-white/15 md:p-8">
-                        <div class="mb-3 flex items-center gap-3 text-[10px] font-medium uppercase tracking-[0.2em] text-[#c8b89a]">
-                            <span class="h-px w-4 bg-[#c8b89a]"></span>
-                            <span>Sourcing & Procurement</span>
-                        </div>
-
-                        <p class="text-xs font-light leading-relaxed text-white/50 sm:text-sm">
-                            Specifications, quantities, and availability for this item can be customized to your project's precise scope. Our procurement team coordinates directly with primary suppliers and global partners for institutional and government fulfillment.
-                        </p>
-                    </div>
-
                 </div>
 
             </div>

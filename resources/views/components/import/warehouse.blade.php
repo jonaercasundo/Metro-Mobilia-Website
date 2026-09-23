@@ -35,23 +35,23 @@
                             active: 0,
                             images: [
                                 {
-                                    src: '{{ asset('images/warehouse.jpg') }}',
+                                    src: '{{ asset('images/warehouse_01.jpg') }}',
                                     alt: 'Metro Mobilia warehouse operations',
                                     label: 'Operations',
                                     caption: 'Reliable logistics, organized inventory, and coordinated delivery supporting projects across the Philippines.'
                                 },
                                 {
-                                    src: '{{ asset('images/warehouse-2.jpg') }}',
-                                    alt: 'Metro Mobilia warehouse inventory',
-                                    label: 'Inventory',
+                                    src: '{{ asset('images/warehouse_02.jpg') }}',
+                                    alt: 'Metro Mobilia Quality Assurance',
+                                    label: 'Quality Assurance',
                                     caption: 'Organized inventory management ensuring products are prepared and available for every project.'
                                 },
                                 {
-                                    src: '{{ asset('images/warehouse-3.jpg') }}',
-                                    alt: 'Metro Mobilia logistics operations',
-                                    label: 'Logistics',
-                                    caption: 'Coordinated logistics and delivery operations connecting our facilities with projects nationwide.'
-                                }
+                                    src: '{{ asset('images/warehouse_03.jpg') }}',
+                                    alt: 'Metro Mobilia Inventory Coordination',
+                                    label: 'Inventory Coordination',
+                                    caption: 'Organized inventory management ensuring products are prepared and available for every project.'
+                                },
                             ],
                             autoplay: null,
 
