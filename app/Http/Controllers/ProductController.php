@@ -179,13 +179,13 @@ class ProductController extends Controller
                 'long_description' => 'Early-learning manipulatives and developmental toys designed to support motor skills, cognitive development, and classroom engagement for pre-school and early elementary programs.',
                 'icon' => 'F',
                 'category' => 'Learners Table and Chair Set',
-                'image' => 'brands/furniture_1.jpg',
+                'image' => 'brands/furniture_1.png',
 
                 'brands' => [
                     [
                         'name' => 'Learners Table and Chair Set (Wood) (1)',
-                        'logo' => 'brands/furniture_1.jpg',
-                        'image' => 'brands/furniture_1.jpg',
+                        'logo' => 'brands/furniture_1.png',
+                        'image' => 'brands/furniture_1.png',
                     ],
                     [
                         'name' => 'Learners Table and Chair Set (Wood) (2)',
@@ -194,13 +194,13 @@ class ProductController extends Controller
                     ],
                     [
                         'name' => 'Learners Table and Chair Set (Wood) (3)',
-                        'logo' => 'brands/furniture_3.jpg',
-                        'image' => 'brands/furniture_3.jpg',
+                        'logo' => 'brands/furniture_3.png',
+                        'image' => 'brands/furniture_3.png',
                     ],
                     [
                         'name' => 'Learners Table and Chair Set (Wood) (4)',
-                        'logo' => 'brands/furniture_4.jpg',
-                        'image' => 'brands/furniture_4.jpg',
+                        'logo' => 'brands/furniture_4.png',
+                        'image' => 'brands/furniture_4.png',
                     ],
                 ],
             ],
